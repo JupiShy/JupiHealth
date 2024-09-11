@@ -5,20 +5,28 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:HealthApp"
     Shell.FlyoutBehavior="Disabled"
-    Title="HealthApp">
+    Title="HealthApp"
+    TitleColor="HotPink"
+    BackgroundColor="Black">
 
     <TabBar>
-        <Tab Title="Home">
+        <Tab Title="Головна">
             <ShellContent
             Title="Головна"
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="MainPage" />
         </Tab>
-        <Tab Title="Consuming">
+        <Tab Title="Медикаменти">
             <ShellContent
             Title="Споживання"
             ContentTemplate="{DataTemplate local:ConsumingPage}"
             Route="ConsumingPage" />
+        </Tab>
+        <Tab Title="Налаштування">
+            <ShellContent
+            Title="Споживання"
+            ContentTemplate="{DataTemplate local:SettingsPage}"
+            Route="SettingsPage" />
         </Tab>
     </TabBar>
 

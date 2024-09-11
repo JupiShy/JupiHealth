@@ -1,0 +1,20 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HealthApp.SettingsPage">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#624E88" Offset="0.0" />
+            <GradientStop Color="#8967B3" Offset="0.25" />
+            <GradientStop Color="#CB80AB" Offset="0.65" />
+            <GradientStop Color="#E6D9A2" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,40"
+            Spacing="25">
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,12 +1,10 @@
 ﻿namespace HealthApp
 {
-    public partial class MainPage : ContentPage
+    public partial class SettingsPage : ContentPage
     {
-        public MainPage()
+        public SettingsPage()
         {
             InitializeComponent();
         }
-
     }
-
 }
