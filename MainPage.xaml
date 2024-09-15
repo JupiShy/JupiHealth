@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HealthApp.MainPage">
+             x:Class="HealthApp.MainPage" MinimumWidthRequest="400">
 
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -19,118 +19,151 @@
 
             <Label
                 Text="Добрий день!"
-                 FontAttributes="Bold"
+                FontAttributes="Bold"
+                TextColor="AliceBlue"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1"/>
 
             <Frame BackgroundColor="AliceBlue"
-               CornerRadius="20"
+               CornerRadius="30"
                BorderColor="Transparent"
+               MaximumWidthRequest="500"
                HasShadow="False"
                Padding="10"
-               Margin="10"
                HorizontalOptions="FillAndExpand"
-               VerticalOptions="Center"
-               HeightRequest="100">
-                <Grid>
+               VerticalOptions="Center">
+
+                <Grid Padding="10">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label
-        Text="ІМТ:"
-                        TextColor="Black"
-        Style="{StaticResource SubHeadline}"
-        SemanticProperties.HeadingLevel="Level2"
-         Margin="0,0,0,0"
-        Grid.Row="0" Grid.Column="1"/>
-
-                    <Label
-        Text="XX.X"
-                        TextColor="Black"
-        Style="{StaticResource SubHeadline}"
-        SemanticProperties.HeadingLevel="Level2"
-         Margin="0,0,0,0"
-        Grid.Row="0" Grid.Column="2"/>
-
-                    <Label
-        Text="Ціль:"
-                        TextColor="Black"
-        Style="{StaticResource SubHeadline}"
-        SemanticProperties.HeadingLevel="Level2"
-        Margin="0,0,0,0"
-        Grid.Row="1" Grid.Column="1"/>
-                    <Label
-        Text="XX.X"
-                        TextColor="Black"
-        Style="{StaticResource SubHeadline}"
-        SemanticProperties.HeadingLevel="Level2"
-        Margin="0,0,0,0"
-        Grid.Row="1" Grid.Column="2"/>
-
-                </Grid>
-
-            </Frame>
-
-            
-
-            <Image
-                Source="cat_icon.png"
-                HeightRequest="185"
-                Aspect="AspectFit" />
-
-            <Frame BackgroundColor="AliceBlue"
-       CornerRadius="20"
-       BorderColor="Transparent"
-       HasShadow="False"
-       Padding="10"
-       HorizontalOptions="FillAndExpand"
-       VerticalOptions="Center"
-       HeightRequest="200">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
+                    <Label
+                        Text="ІМТ:"
+                        TextColor="#593E99"
+                        FontAttributes="Bold"
+                        Style="{StaticResource SubHeadline}"
+                        SemanticProperties.HeadingLevel="Level2"
+                        Margin="0,0,0,0"
+                        Grid.Row="0" Grid.Column="1"/>
 
-                    <Label 
-        Text="Води випито:" 
-                        TextColor="Black"
-        HorizontalOptions="Start" 
-        HorizontalTextAlignment="Start" 
-        Grid.Row="0" Grid.Column="0" 
-        Style="{StaticResource SubHeadline}" 
-        SemanticProperties.HeadingLevel="Level2"/>
+                    <Label
+                        Text="XX.X"
+                        TextColor="#593E99"
+                        Style="{StaticResource SubHeadline}"
+                        SemanticProperties.HeadingLevel="Level2"
+                        Margin="0,0,0,0"
+                        Grid.Row="0" Grid.Column="2"/>
 
-                    <Label 
-        Text="Тут буде колись показувати" 
-                        TextColor="Black"
-        HorizontalOptions="Start" 
-        HorizontalTextAlignment="Start" 
-        Grid.Row="1" Grid.Column="0" 
-        Style="{StaticResource SubHeadline}" 
-        SemanticProperties.HeadingLevel="Level2"/>
+                    <BoxView Color="#313E77"
+                             HeightRequest="2"
+                             HorizontalOptions="Fill"
+                             Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
 
-                    <Label 
-        Text="+" 
-                        TextColor="Black"
-        Grid.Row="1" Grid.Column="1" 
-        Style="{StaticResource SubHeadline}" 
-        SemanticProperties.HeadingLevel="Level1"/>
+
+                    <Label
+                        Text="Ціль:"
+                        TextColor="#593E99"
+                        FontAttributes="Bold"
+                        Style="{StaticResource SubHeadline}"
+                        SemanticProperties.HeadingLevel="Level2"
+                        Margin="0,0,0,0"
+                        Grid.Row="2" Grid.Column="1"/>
+                    <Label
+                        Text="XX.X"
+                        TextColor="#593E99"
+                        Style="{StaticResource SubHeadline}"
+                        SemanticProperties.HeadingLevel="Level2"
+                        Margin="0,0,0,0"
+                        Grid.Row="2" Grid.Column="2"/>
+
                 </Grid>
 
             </Frame>
-            
+
+            <BoxView Color="AliceBlue"
+                     HeightRequest="10"
+                     MaximumWidthRequest="350"
+                     CornerRadius="20"
+                     HorizontalOptions="Fill"/>
+
+
+            <Frame BackgroundColor="AliceBlue"
+                   MaximumWidthRequest="500"
+                   CornerRadius="30"
+                   BorderColor="Transparent"
+                   HasShadow="False"
+                   Padding="10"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center">
+                <Grid Padding="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label 
+                        Text="Водa:" 
+                        TextColor="#593E99"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Start" 
+                        HorizontalTextAlignment="Start"
+                        VerticalOptions="Center"
+                        Grid.Column="1" 
+                        FontSize="24"
+                        SemanticProperties.HeadingLevel="Level2"/>
+                    <Label 
+                        Text="XXXX" 
+                        TextColor="#593E99"
+                        HorizontalOptions="Start" 
+                        HorizontalTextAlignment="Start"
+                        VerticalOptions="Center"
+                        Grid.Column="2" 
+                        Style="{StaticResource SubHeadline}" 
+                        SemanticProperties.HeadingLevel="Level2"/>
+
+
+                    <Button 
+                        Text="+" FontAttributes="Bold" FontFamily="Tahoma"
+                        BackgroundColor="#313E77" TextColor="AliceBlue" FontSize="25"
+                        IsEnabled="True" WidthRequest="50" HeightRequest="50" CornerRadius="50"
+                        Grid.Column="3">
+                    </Button>
+                </Grid>
+
+            </Frame>
+
+            <BoxView Color="AliceBlue"
+                     HeightRequest="10"
+                     MaximumWidthRequest="350"
+                     CornerRadius="20"
+                     HorizontalOptions="Fill"/>
+
+            <Frame BackgroundColor="AliceBlue"
+                   CornerRadius="20"
+                   BorderColor="Transparent"
+                   MaximumWidthRequest="500"
+                   HasShadow="False"
+                   Padding="10"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center">
+
+                <Label Text="Hello))" TextColor="Transparent"></Label>
+            </Frame>
+
 
         </VerticalStackLayout>
     </ScrollView>

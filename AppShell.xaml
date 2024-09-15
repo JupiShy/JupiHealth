@@ -6,28 +6,31 @@
     xmlns:local="clr-namespace:HealthApp"
     Shell.FlyoutBehavior="Disabled"
     Title="HealthApp"
-    TitleColor="HotPink"
-    BackgroundColor="Black">
+    TitleColor="AliceBlue"
+    BackgroundColor="#624E88">
 
+    
+    
     <TabBar>
-        <Tab Title="Головна">
+        <Tab Icon="square_user.png">
             <ShellContent
             Title="Головна"
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="MainPage" />
         </Tab>
-        <Tab Title="Медикаменти">
+        <Tab Icon="alarm.png">
             <ShellContent
             Title="Споживання"
             ContentTemplate="{DataTemplate local:ConsumingPage}"
             Route="ConsumingPage" />
         </Tab>
-        <Tab Title="Налаштування">
+        <Tab Icon="circle.png">
             <ShellContent
-            Title="Споживання"
+            Title="Налаштування"
             ContentTemplate="{DataTemplate local:SettingsPage}"
             Route="SettingsPage" />
         </Tab>
+        
     </TabBar>
 
 </Shell>

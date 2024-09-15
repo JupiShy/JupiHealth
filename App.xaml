@@ -9,6 +9,18 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="TabBar">
+                <Setter Property="Shell.TabBarBackgroundColor"
+                   Value="#624E88"/>
+                <Setter Property="Shell.TabBarTitleColor"
+                   Value="AliceBlue"/>
+                <Setter Property="Shell.TabBarUnselectedColor"
+                   Value="Black" />
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Tahoma" />
+                <Setter Property="FontSize" Value="15" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
