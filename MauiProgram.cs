@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microcharts.Maui;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace HealthApp
 {
@@ -13,7 +15,8 @@ namespace HealthApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+                .UseSkiaSharp();
 
 #if DEBUG
     		builder.Logging.AddDebug();

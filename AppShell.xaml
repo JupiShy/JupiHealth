@@ -12,19 +12,19 @@
     
     
     <TabBar>
-        <Tab Icon="square_user.png">
+        <Tab Title="Головна" Icon="square_user.png">
             <ShellContent
             Title="Головна"
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="MainPage" />
         </Tab>
-        <Tab Icon="alarm.png">
+        <Tab Title="Медикаменти" Icon="alarm.png">
             <ShellContent
             Title="Споживання"
             ContentTemplate="{DataTemplate local:ConsumingPage}"
             Route="ConsumingPage" />
         </Tab>
-        <Tab Icon="circle.png">
+        <Tab Title="Інше" Icon="circle.png">
             <ShellContent
             Title="Налаштування"
             ContentTemplate="{DataTemplate local:SettingsPage}"

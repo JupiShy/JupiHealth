@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HealthApp.MainPage" MinimumWidthRequest="400">
+             x:Class="HealthApp.MainPage" MinimumWidthRequest="400"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls"
+             xmlns:charts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui">
 
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -14,15 +16,15 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="30,40"
+            Padding="25,30"
             Spacing="25">
 
             <Label
-                Text="Добрий день!"
+                Text="Добрий день, name!"
                 FontAttributes="Bold"
                 TextColor="AliceBlue"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1"/>
+                FontSize="25"
+                HorizontalTextAlignment="Center"/>
 
             <Frame BackgroundColor="AliceBlue"
                CornerRadius="30"
@@ -33,7 +35,7 @@
                HorizontalOptions="FillAndExpand"
                VerticalOptions="Center">
 
-                <Grid Padding="10">
+                <Grid Padding="10" RowSpacing="10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -49,16 +51,16 @@
                         Text="ІМТ:"
                         TextColor="#593E99"
                         FontAttributes="Bold"
-                        Style="{StaticResource SubHeadline}"
-                        SemanticProperties.HeadingLevel="Level2"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
                         Margin="0,0,0,0"
                         Grid.Row="0" Grid.Column="1"/>
 
                     <Label
                         Text="XX.X"
                         TextColor="#593E99"
-                        Style="{StaticResource SubHeadline}"
-                        SemanticProperties.HeadingLevel="Level2"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
                         Margin="0,0,0,0"
                         Grid.Row="0" Grid.Column="2"/>
 
@@ -72,15 +74,15 @@
                         Text="Ціль:"
                         TextColor="#593E99"
                         FontAttributes="Bold"
-                        Style="{StaticResource SubHeadline}"
-                        SemanticProperties.HeadingLevel="Level2"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
                         Margin="0,0,0,0"
                         Grid.Row="2" Grid.Column="1"/>
                     <Label
                         Text="XX.X"
                         TextColor="#593E99"
-                        Style="{StaticResource SubHeadline}"
-                        SemanticProperties.HeadingLevel="Level2"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
                         Margin="0,0,0,0"
                         Grid.Row="2" Grid.Column="2"/>
 
@@ -93,7 +95,6 @@
                      MaximumWidthRequest="350"
                      CornerRadius="20"
                      HorizontalOptions="Fill"/>
-
 
             <Frame BackgroundColor="AliceBlue"
                    MaximumWidthRequest="500"
@@ -123,7 +124,7 @@
                         HorizontalTextAlignment="Start"
                         VerticalOptions="Center"
                         Grid.Column="1" 
-                        FontSize="24"
+                        FontSize="20"
                         SemanticProperties.HeadingLevel="Level2"/>
                     <Label 
                         Text="XXXX" 
@@ -131,9 +132,8 @@
                         HorizontalOptions="Start" 
                         HorizontalTextAlignment="Start"
                         VerticalOptions="Center"
-                        Grid.Column="2" 
-                        Style="{StaticResource SubHeadline}" 
-                        SemanticProperties.HeadingLevel="Level2"/>
+                        FontSize="20"
+                        Grid.Column="2"/>
 
 
                     <Button 
@@ -161,10 +161,40 @@
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="Center">
 
-                <Label Text="Hello))" TextColor="Transparent"></Label>
+                <Grid Padding="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Цей тиждень:"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="#593E99"
+                           HorizontalTextAlignment="Center"
+                           Margin="0,0,0,20"
+                           Grid.Column="1"></Label>
+                    
+                    <Frame BackgroundColor="White"
+                           CornerRadius="20"
+                           BorderColor="Transparent"
+                           MaximumWidthRequest="400"
+                           MinimumWidthRequest="250"
+                           HasShadow="False"
+                           Padding="10"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"
+                           Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+
+                        <charts:ChartView x:Name="ChartWeek" HeightRequest="250"></charts:ChartView>
+                    </Frame>
+                </Grid>
             </Frame>
-
-
         </VerticalStackLayout>
     </ScrollView>
 
