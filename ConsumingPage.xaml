@@ -12,12 +12,11 @@
         </LinearGradientBrush>
     </ContentPage.Background>
 
-    <ScrollView>
-        <VerticalStackLayout
+    <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
 
-            <Frame BackgroundColor="AliceBlue"
+        <Frame BackgroundColor="AliceBlue"
                    CornerRadius="30"
                    BorderColor="Transparent"
                    MaximumWidthRequest="500"
@@ -27,18 +26,18 @@
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="Center">
 
-                <Grid Padding="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    
-                    <Label
+            <Grid Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label
                         Text="Мої медикаменти:"
                         TextColor="#593E99"
                         FontAttributes="Bold"
@@ -47,19 +46,19 @@
                         Margin="0,0,0,0"
                         Grid.Row="0" Grid.Column="0"/>
 
-                    <Image Source="circle.png" Grid.Row="0" Grid.Column="3" HeightRequest="30" WidthRequest="30"/>
+                <Image Source="circle.png" Grid.Row="0" Grid.Column="3" HeightRequest="30" WidthRequest="30"/>
 
-                </Grid>
+            </Grid>
 
-            </Frame>
+        </Frame>
 
-            <BoxView Color="AliceBlue"
+        <BoxView Color="AliceBlue"
                      HeightRequest="10"
                      MaximumWidthRequest="350"
                      CornerRadius="20"
                      HorizontalOptions="Fill"/>
 
-            <Frame BackgroundColor="AliceBlue"
+        <Frame BackgroundColor="AliceBlue"
                    CornerRadius="30"
                    BorderColor="Transparent"
                    MaximumWidthRequest="500"
@@ -68,30 +67,72 @@
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="Center">
 
-                <Grid Padding="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+            <Grid Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-                    
+                <Label Text="Прийняти сьогодні:"
+                           TextColor="#593E99"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           HorizontalTextAlignment="Center"
+                           Margin="0,0,0,0"
+                           Grid.Row="0" Grid.Column="1"
+                           ></Label>
 
-                </Grid>
+                <ScrollView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+                    <Frame BackgroundColor="Lavender"
+                           CornerRadius="30"
+                           BorderColor="Transparent"
+                           HeightRequest="400"
+                           MaximumHeightRequest="400"
+                           MaximumWidthRequest="500"
+                           HasShadow="False"
+                           Padding="10"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"
+                           Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
 
-            </Frame>
+                        <Grid x:Name="TodayMedList" ColumnSpacing="10" RowSpacing="10">
 
-            <BoxView Color="AliceBlue"
-                     HeightRequest="10"
-                     MaximumWidthRequest="350"
-                     CornerRadius="20"
-                     HorizontalOptions="Fill"/>
+                            <!-- оце видалю перед написанням бека -->
 
-        </VerticalStackLayout>
-    </ScrollView>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="Елемент 1" TextColor="#593E99" Grid.Row="0" Grid.Column="0"/>
+                            <Label Text="Елемент 2" TextColor="#593E99" Grid.Row="0" Grid.Column="1"/>
+                            <Label Text="Елемент 3" TextColor="#593E99" Grid.Row="1" Grid.Column="0"/>
+                            <Label Text="Елемент 4" TextColor="#593E99" Grid.Row="1" Grid.Column="1"/>
+                            <Label Text="Елемент 5" TextColor="#593E99" Grid.Row="2" Grid.Column="0"/>
+                            <Label Text="Елемент 6" TextColor="#593E99" Grid.Row="2" Grid.Column="1"/>
+
+
+                        </Grid>
+
+                    </Frame>
+                </ScrollView>
+
+            </Grid>
+
+        </Frame>
+
+    </VerticalStackLayout>
 
 </ContentPage>
