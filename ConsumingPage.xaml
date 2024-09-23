@@ -121,9 +121,6 @@
                             <Label Text="Елемент 3" TextColor="#593E99" Grid.Row="1" Grid.Column="0"/>
                             <Label Text="Елемент 4" TextColor="#593E99" Grid.Row="1" Grid.Column="1"/>
                             <Label Text="Елемент 5" TextColor="#593E99" Grid.Row="2" Grid.Column="0"/>
-                            <Label Text="Елемент 6" TextColor="#593E99" Grid.Row="2" Grid.Column="1"/>
-
-
                         </Grid>
 
                     </Frame>
