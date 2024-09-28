@@ -41,22 +41,23 @@
                     </Grid.ColumnDefinitions>
 
                     <Label
-                Text="Мої медикаменти"
-                TextColor="#593E99"
-                FontAttributes="Bold"
-                FontSize="20"
-                HorizontalTextAlignment="Center"
-                VerticalTextAlignment="Center"
-                Margin="0,0,0,0"
-                Grid.Row="0" Grid.Column="1"/>
-
+                        Text="Мої медикаменти"
+                        TextColor="#593E99"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        Margin="0,0,0,0"
+                        Grid.Row="0" Grid.Column="1"/>
                     <Button 
-                Text="···" FontAttributes="Bold" FontFamily="Tahoma"
-                BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="25"
-                Margin="0, -5, 0, -5"
-                Padding="-5"
-                IsEnabled="True" WidthRequest="20" HeightRequest="20" CornerRadius="50"
-                Grid.Row="0" Grid.Column="2">
+                        x:Name="medSettingsButton"
+                        Clicked="OnMedSettingsButtonClicked"
+                        Text="···" FontAttributes="Bold" FontFamily="Tahoma"
+                        BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="25"
+                        Margin="0, -5, 0, -5"
+                        Padding="-5"
+                        IsEnabled="True" WidthRequest="20" HeightRequest="20" CornerRadius="50"
+                        Grid.Row="0" Grid.Column="2">
                     </Button>
 
                 </Grid>

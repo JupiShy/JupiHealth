@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             MinimumWidthRequest="400"
+             x:Class="HealthApp.MedsSettings"
+             Title="Мої медикаменти">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#998CBB" Offset="0.0" />
+            <GradientStop Color="#B89FD3" Offset="0.25" />
+            <GradientStop Color="#E7ADC4" Offset="0.65" />
+            <GradientStop Color="#F3ECCC" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <Grid x:Name="MedsTable" Margin="10" Padding="10" ColumnSpacing="5" RowSpacing="5" MaximumWidthRequest="800">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Name" Grid.Column="0" Grid.Row="0" FontSize="18" FontAttributes="Bold" Padding="10, 0 ,0, 0"
+                   BackgroundColor="AliceBlue" TextColor="#593E99" VerticalTextAlignment="Center"></Label>
+            <Label Text="Days" Grid.Column="1" Grid.Row="0" FontSize="18" FontAttributes="Bold" Padding="10, 0 ,0, 0"
+                   BackgroundColor="AliceBlue" TextColor="#593E99" VerticalTextAlignment="Center"></Label>
+            <Label Text="Times" Grid.Column="2" Grid.Row="0" FontSize="18" FontAttributes="Bold" Padding="10, 0 ,0, 0"
+                   BackgroundColor="AliceBlue" TextColor="#593E99" VerticalTextAlignment="Center"></Label>
+            <Button 
+                    x:Name="plusMedButton"
+                    Text="+" FontAttributes="Bold" FontFamily="Tahoma"
+                    BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="20" Padding="0, 0, 0 ,5"
+                    IsEnabled="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" CornerRadius="0"
+                    Grid.Row="0" Grid.Column="3"
+                    Clicked="OnAddMedButtonClicked"
+                    Pressed="OnButtonPressed"
+                    Released="OnButtonReleased">
+              </Button>
+
+            <Label Text="Text" Grid.Column="0" Grid.Row="1" FontSize="18" BackgroundColor="AliceBlue"
+                   TextColor="#593E99" Padding="10, 0 ,0, 0" VerticalTextAlignment="Center"></Label>
+            <Label Text="Text" Grid.Column="1" Grid.Row="1" FontSize="18" BackgroundColor="AliceBlue"
+                   TextColor="#593E99" Padding="10, 0 ,0, 0" VerticalTextAlignment="Center"></Label>
+            <Label Text="Text" Grid.Column="2" Grid.Row="1" FontSize="18" BackgroundColor="AliceBlue"
+                   TextColor="#593E99" Padding="10, 0 ,0, 0" VerticalTextAlignment="Center"></Label>
+            <Button 
+                x:Name="medButton"
+                Text="···" FontAttributes="Bold" FontFamily="Tahoma"
+                BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="20"
+                IsEnabled="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" CornerRadius="0"
+                Grid.Row="1" Grid.Column="3"
+                Clicked="OnChangeButtonClicked"
+                Pressed="OnButtonPressed"
+                Released="OnButtonReleased">
+            </Button>
+            
+        </Grid>
+    </ScrollView>
+</ContentPage>

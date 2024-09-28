@@ -17,6 +17,7 @@
                 <Setter Property="Shell.TabBarUnselectedColor"
                    Value="Black" />
             </Style>
+
             <Style TargetType="Label">
                 <Setter Property="FontFamily" Value="Tahoma" />
                 <Setter Property="FontSize" Value="15" />
