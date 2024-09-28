@@ -13,8 +13,40 @@
 
     <ScrollView>
         <VerticalStackLayout
-            Padding="30,40"
+            Padding="30,0"
             Spacing="25">
+
+            <Button Text="Очистити інформацію"
+                    TextColor="#593E99"
+                    FontFamily="Tahoma"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    MaximumWidthRequest="500"
+                    BackgroundColor="AliceBlue"
+                    CornerRadius="30"
+                    Padding="0, 25"
+                    Margin="0, 35, 0, 0"
+                    IsEnabled="True">
+            </Button>
+
+
+            <BoxView Color="AliceBlue"
+                     HeightRequest="10"
+                     MaximumWidthRequest="350"
+                     CornerRadius="20"
+                     HorizontalOptions="Fill"/>
+
+            <Button Text="Про додаток"
+                    TextColor="#593E99"
+                    FontFamily="Tahoma"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    MaximumWidthRequest="500"
+                    BackgroundColor="AliceBlue"
+                    CornerRadius="30"
+                    Padding="0, 25"
+                    IsEnabled="True">
+            </Button>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

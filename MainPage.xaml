@@ -42,10 +42,11 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label
                         Text="ІМТ:"
@@ -53,7 +54,8 @@
                         FontAttributes="Bold"
                         FontSize="20"
                         HorizontalTextAlignment="Center"
-                        Margin="0,0,0,0"
+                        VerticalTextAlignment="Center"
+                        Margin="20,0,0,0"
                         Grid.Row="0" Grid.Column="1"/>
 
                     <Label
@@ -61,13 +63,24 @@
                         TextColor="#593E99"
                         FontSize="20"
                         HorizontalTextAlignment="Center"
-                        Margin="0,0,0,0"
+                        VerticalTextAlignment="Center"
+                        Margin="20,0,0,0"
                         Grid.Row="0" Grid.Column="2"/>
 
-                    <BoxView Color="#313E77"
+                    <Button 
+                        Text="···" FontAttributes="Bold" FontFamily="Tahoma"
+                        BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="25"
+                        Margin="0, -5, 0, -5"
+                        Padding="-5"
+                        IsEnabled="True" WidthRequest="20" HeightRequest="20" CornerRadius="50"
+                        Grid.Row="0" Grid.Column="3">
+                    </Button>
+
+                    <BoxView Color="#593E99"
+                             Margin="30, 0, 30 ,0"
                              HeightRequest="2"
                              HorizontalOptions="Fill"
-                             Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                             Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
 
 
                     <Label
@@ -76,15 +89,23 @@
                         FontAttributes="Bold"
                         FontSize="20"
                         HorizontalTextAlignment="Center"
-                        Margin="0,0,0,0"
+                        Margin="20,0,0,0"
                         Grid.Row="2" Grid.Column="1"/>
                     <Label
                         Text="XX.X"
                         TextColor="#593E99"
                         FontSize="20"
                         HorizontalTextAlignment="Center"
-                        Margin="0,0,0,0"
+                        Margin="20,0,0,0"
                         Grid.Row="2" Grid.Column="2"/>
+                    <Button 
+                        Text="···" FontAttributes="Bold" FontFamily="Tahoma"
+                        Margin="0, -5, 0, -5"
+                        Padding="-5"
+                        BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="25"
+                        IsEnabled="True" WidthRequest="20" HeightRequest="20" CornerRadius="50"
+                        Grid.Row="2" Grid.Column="3">
+                    </Button>
 
                 </Grid>
 
@@ -109,11 +130,11 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="3*" />
-                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
                     </Grid.ColumnDefinitions>
 
                     <Label 
@@ -127,19 +148,22 @@
                         FontSize="20"
                         SemanticProperties.HeadingLevel="Level2"/>
                     <Label 
-                        Text="XXXX" 
+                        Text="XXXX мл" 
                         TextColor="#593E99"
                         HorizontalOptions="Start" 
                         HorizontalTextAlignment="Start"
                         VerticalOptions="Center"
+
                         FontSize="20"
                         Grid.Column="2"/>
 
 
                     <Button 
                         Text="+" FontAttributes="Bold" FontFamily="Tahoma"
-                        BackgroundColor="#313E77" TextColor="AliceBlue" FontSize="25"
-                        IsEnabled="True" WidthRequest="50" HeightRequest="50" CornerRadius="50"
+                        BackgroundColor="#313E77" TextColor="AliceBlue" FontSize="20"
+                        Margin="0, 0, -20, 0"
+                        Padding="5"
+                        IsEnabled="True" WidthRequest="20" HeightRequest="20" CornerRadius="50"
                         Grid.Column="3">
                     </Button>
                 </Grid>
