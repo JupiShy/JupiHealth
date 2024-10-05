@@ -168,7 +168,6 @@
                         HorizontalOptions="Start" 
                         HorizontalTextAlignment="Start"
                         VerticalOptions="Center"
-
                         FontSize="20"
                         Grid.Column="2"/>
 
@@ -176,9 +175,8 @@
                     <Button 
                         Text="+" FontAttributes="Bold" FontFamily="Tahoma"
                         BackgroundColor="#313E77" TextColor="AliceBlue" FontSize="20"
-                        Margin="0, 0, -20, 0"
                         Padding="5"
-                        IsEnabled="True" WidthRequest="20" HeightRequest="20" CornerRadius="50"
+                        IsEnabled="True" WidthRequest="35" HeightRequest="35" CornerRadius="50"
                         Grid.Column="3">
                     </Button>
                 </Grid>

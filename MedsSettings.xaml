@@ -28,11 +28,11 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label Text="Name" Grid.Column="0" Grid.Row="0" FontSize="18" FontAttributes="Bold" Padding="10, 0 ,0, 0"
+            <Label Text="Name" Grid.Column="0" Grid.Row="0" FontSize="16" FontAttributes="Bold" Padding="10, 0 ,0, 0"
                    BackgroundColor="AliceBlue" TextColor="#593E99" VerticalTextAlignment="Center"></Label>
-            <Label Text="Days" Grid.Column="1" Grid.Row="0" FontSize="18" FontAttributes="Bold" Padding="10, 0 ,0, 0"
+            <Label Text="Days" Grid.Column="1" Grid.Row="0" FontSize="16" FontAttributes="Bold" Padding="10, 0 ,0, 0"
                    BackgroundColor="AliceBlue" TextColor="#593E99" VerticalTextAlignment="Center"></Label>
-            <Label Text="Times" Grid.Column="2" Grid.Row="0" FontSize="18" FontAttributes="Bold" Padding="10, 0 ,0, 0"
+            <Label Text="Times" Grid.Column="2" Grid.Row="0" FontSize="16" FontAttributes="Bold" Padding="10, 0 ,0, 0"
                    BackgroundColor="AliceBlue" TextColor="#593E99" VerticalTextAlignment="Center"></Label>
             <Button 
                     x:Name="plusMedButton"

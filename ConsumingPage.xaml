@@ -104,7 +104,7 @@
                         <Frame BackgroundColor="Lavender"
                        CornerRadius="30"
                        BorderColor="Transparent"
-                       HeightRequest="400"
+                       MinimumHeightRequest="200"
                        MaximumHeightRequest="400"
                        MaximumWidthRequest="500"
                        HasShadow="False"
@@ -121,6 +121,10 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -128,11 +132,27 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Label Text="Елемент 1" TextColor="#593E99" Grid.Row="0" Grid.Column="0"/>
-                                <Label Text="Елемент 2" TextColor="#593E99" Grid.Row="0" Grid.Column="1"/>
-                                <Label Text="Елемент 3" TextColor="#593E99" Grid.Row="1" Grid.Column="0"/>
-                                <Label Text="Елемент 4" TextColor="#593E99" Grid.Row="1" Grid.Column="1"/>
-                                <Label Text="Елемент 5" TextColor="#593E99" Grid.Row="2" Grid.Column="0"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="0" Grid.Column="0"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="0" Grid.Column="1"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="0" Grid.Column="2"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="1" Grid.Column="0"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="1" Grid.Column="1"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="1" Grid.Column="2"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="2" Grid.Column="0"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="2" Grid.Column="1"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="2" Grid.Column="2"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="3" Grid.Column="0"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="3" Grid.Column="1"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="3" Grid.Column="2"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="4" Grid.Column="0"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="4" Grid.Column="1"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="4" Grid.Column="2"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="5" Grid.Column="0"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="5" Grid.Column="1"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="5" Grid.Column="2"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="6" Grid.Column="0"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="6" Grid.Column="1"/>
+                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="6" Grid.Column="2"/>
                             </Grid>
 
                         </Frame>

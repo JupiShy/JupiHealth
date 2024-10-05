@@ -44,7 +44,7 @@
                     medName = await DisplayPromptAsync("Назва", "Введіть назву:");
                     if (!string.IsNullOrEmpty(medName))
                         break;
-                    await DisplayAlert("Помилка", "Неправильно введено назву, спробуйте ще раз.", "OK");
+                    await DisplayAlert("Помилка", "Неправильно введено назву, спробуйте ще раз.", "OK", "Назад");
                 }
 
                 while (true)
@@ -53,7 +53,7 @@
                     int days;
                     if (int.TryParse(medDays, out days) && days > 0)
                         break;
-                    await DisplayAlert("Помилка", "Неправильно введено кількість днів, спробуйте ще раз.", "OK");
+                    await DisplayAlert("Помилка", "Неправильно введено кількість днів, спробуйте ще раз.", "OK", "Назад");
                 }
 
                 while (true)
@@ -61,13 +61,11 @@
                     medTime = await DisplayPromptAsync("Години", "Вкажіть години прийому:");
                     if (!string.IsNullOrEmpty(medTime))
                         break;
-                    await DisplayAlert("Помилка", "Неправильно введено час, спробуйте ще раз.", "OK");
+                    await DisplayAlert("Помилка", "Неправильно введено час, спробуйте ще раз.", "OK", "Назад");
                 }
 
                 await DisplayAlert("Добре!", "Все чудово", "OK");
             }
-
-
 
         }
 
