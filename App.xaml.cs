@@ -1,4 +1,6 @@
-﻿namespace HealthApp
+﻿using HealthApp.Database;
+
+namespace HealthApp
 {
     public partial class App : Application
     {
