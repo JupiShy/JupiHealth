@@ -175,7 +175,7 @@
                     <Button 
                         Text="+" FontAttributes="Bold" FontFamily="Tahoma"
                         BackgroundColor="#313E77" TextColor="AliceBlue" FontSize="20"
-                        Padding="5"
+                        Padding="5" Clicked="AddWaterButtonClicked"
                         IsEnabled="True" WidthRequest="35" HeightRequest="35" CornerRadius="50"
                         Grid.Column="3">
                     </Button>

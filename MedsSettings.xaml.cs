@@ -1,8 +1,14 @@
-﻿namespace HealthApp
+﻿using HealthApp.Database;
+using HealthApp.Database.Tables;
+using System.Data.SQLite;
+
+namespace HealthApp
 {
 	public partial class MedsSettings : ContentPage
 	{
-		public MedsSettings()
+        private int _medId;
+
+        public MedsSettings()
 		{
 			InitializeComponent();
             _gridElements = new Dictionary<(int, int), View>();
@@ -15,21 +21,18 @@
             
         }
 
-        // Анімація при натисканні
         private async void OnButtonPressed(object sender, EventArgs e)
         {
             var button = (Button)sender;
             await button.ScaleTo(0.9, 50);
         }
 
-        // Анімація при відпусканні
         private async void OnButtonReleased(object sender, EventArgs e)
         {
             var button = (Button)sender;
             await button.ScaleTo(1, 50);
         }
 
-        // Обробник кліку
         private async void OnAddMedButtonClicked(object sender, EventArgs e)
         {
             string medName;
@@ -65,7 +68,16 @@
                 }
 
                 await DisplayAlert("Добре!", "Все чудово", "OK");
+
+                //await _database.AddMed(new Medicines
+                //{
+                //    DrugName = medName,
+                //    DaysToTake = Convert.ToInt16(medDays),
+                //    ReceptionHours = medTime
+                //});
             }
+
+
 
         }
 

@@ -26,6 +26,7 @@
                     CornerRadius="30"
                     Padding="0, 25"
                     Margin="0, 35, 0, 0"
+                    Clicked="DeleteInfoClicked"
                     IsEnabled="True">
             </Button>
 

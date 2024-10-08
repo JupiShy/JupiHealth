@@ -1,4 +1,7 @@
-﻿namespace HealthApp
+﻿using HealthApp.Database;
+using System.Data.SQLite;
+
+namespace HealthApp
 {
     public partial class ConsumingPage : ContentPage
     {

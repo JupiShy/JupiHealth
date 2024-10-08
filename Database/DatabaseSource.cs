@@ -1,40 +1,30 @@
-﻿using System.Data.SQLite;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using HealthApp.Database.Tables;
 
 namespace HealthApp.Database
 {
-    class DatabaseSource
+    public class DatabaseSource : DbContext
     {
-        public static readonly SQLiteConnection SQLiteConn =
-            new SQLiteConnection($"Data Source=UserData.db;Version=3;");
+        public DbSet<User> user { get; set; }
+        public DbSet<Metrics> metrics { get; set; }
+        public DbSet<Medicines> medicines { get; set; }
+        public DbSet<MedicationSchedule> medication_schedules { get; set; }
 
-        public static SQLiteConnection? CreateConnection()
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            try
-            {
-                SQLiteConn.Open();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Database error " + ex.Message);
-                Environment.Exit(1);
-            }
+            var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "UserData.db");
 
-            return SQLiteConn;
+            optionsBuilder.UseSqlite($"Data Source={dbPath}");
         }
 
-        public static void CloseConnection()
+        public void InitializeDatabase()
         {
-            try
-            {
-                SQLiteConn.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Database error " + ex.Message);
-                Environment.Exit(0);
-            }
+            this.Database.EnsureCreated();
         }
-
-
     }
 }

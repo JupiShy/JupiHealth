@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microcharts.Maui;
 using SkiaSharp.Views.Maui.Controls.Hosting;
+using HealthApp.Database;
 
 namespace HealthApp
 {

@@ -19,10 +19,10 @@ namespace HealthApp.Database.Tables
         [SQLite.Column("drug_name")]
         public string DrugName { get; set; }
 
-        [SQLite.Column("days")]
-        public string DaysToTake { get; set; }
+        [SQLite.Column("days_to_take")]
+        public int DaysToTake { get; set; }
 
-        [SQLite.Column("hours")]
-        public int ReceptionHours { get; set; }
+        [SQLite.Column("reception_hours")]
+        public string ReceptionHours { get; set; }
     }
 }

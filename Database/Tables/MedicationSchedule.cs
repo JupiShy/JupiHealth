@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace HealthApp.Database.Tables
 {
-    public class User
+    public class MedicationSchedule
     {
         public int Id { get; set; }
-
-        public string Name { get; set; }
-
-        public int Age { get; set; }
+        public int MedId { get; set; }
+        public int MedNumber { get; set; }
+        public int Day { get; set; }
+        public string ReceptionHour { get; set; }
     }
 }

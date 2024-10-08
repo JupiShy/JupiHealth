@@ -1,4 +1,5 @@
 ﻿using HealthApp.Database;
+using System;
 
 namespace HealthApp
 {
@@ -7,6 +8,11 @@ namespace HealthApp
         public App()
         {
             InitializeComponent();
+
+            using (var context = new DatabaseSource())
+            {
+                context.InitializeDatabase();
+            }
 
             MainPage = new AppShell();
         }

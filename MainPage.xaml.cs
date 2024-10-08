@@ -1,14 +1,51 @@
-﻿using Microcharts;
+﻿using HealthApp.Database;
+using HealthApp.Database.Tables;
+using Microcharts;
 using SkiaSharp;
+using System;
 
 namespace HealthApp
 {
     public partial class MainPage : ContentPage
     {
+        public readonly DatabaseSource db = new DatabaseSource();
         public MainPage()
         {
             InitializeComponent();
             CreateBarChart();
+
+            var context = new DatabaseSource();
+
+        }
+
+        public async Task AddUser(string name, int age)
+        {
+            var context = new DatabaseSource();
+
+            var newUser = new User
+            {
+                Name = name,
+                Age = age
+            };
+
+            // Додаємо користувача до бази даних
+            context.user.Add(newUser);
+
+            // Зберігаємо зміни до бази даних
+            await context.SaveChangesAsync();
+
+            Console.WriteLine($"User added with ID: {newUser.Id}");
+        }
+
+        public void AddWaterButtonClicked(object sender, EventArgs e)
+        {
+            AddUser("Test", 11);
+
+            var users = db.user.ToList();
+            foreach (var user in users)
+            {
+                DisplayAlert("Yay", $"ID: {user.Id}, Name: {user.Name}, Age: {user.Age}", "OK", "Назад");
+            }
         }
 
         private void CreateBarChart()
