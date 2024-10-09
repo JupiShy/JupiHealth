@@ -1,5 +1,7 @@
 ﻿using HealthApp.Database;
+using HealthApp.Database.Tables;
 using Microsoft.EntityFrameworkCore;
+using System.Xml.Linq;
 
 namespace HealthApp
 {
@@ -27,8 +29,29 @@ namespace HealthApp
                 db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'medicines'");
                 db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'medication_schedules'");
 
-                db.SaveChanges();     
+                await db.SaveChangesAsync();     
             }
-        }   
+        }
+
+        private async void AboutButtonClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Про додаток", "Додаток розроблено Киричок Софією в межах курсового проєкту з ПАІС в ППФК", "ОК");
+        }
+
+        private async void SettingsButtonClicked(object sender, EventArgs e)
+        {
+            string inputName = await DisplayPromptAsync("Налаштування профілю", "Введіть Ваше ім'я:");
+            await Task.Delay(100);
+
+            int inputAge;
+            string inputAgeString = await DisplayPromptAsync("Налаштування профілю", "Введіть Ваш вік:");
+            int.TryParse(inputAgeString, out inputAge);
+            
+            var databaseHandler = new DatabaseHandler();
+
+            if(inputName != null) await databaseHandler.ChangeUserInfo(inputName, inputAge);
+
+            await db.SaveChangesAsync();
+        }
     }
 }

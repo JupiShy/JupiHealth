@@ -46,6 +46,26 @@
                     BackgroundColor="AliceBlue"
                     CornerRadius="30"
                     Padding="0, 25"
+                    Clicked="AboutButtonClicked"
+                    IsEnabled="True">
+            </Button>
+
+            <BoxView Color="AliceBlue"
+                     HeightRequest="10"
+                     MaximumWidthRequest="350"
+                     CornerRadius="20"
+                     HorizontalOptions="Fill"/>
+
+            <Button Text="Налаштування профілю"
+                    TextColor="#593E99"
+                    FontFamily="Tahoma"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    MaximumWidthRequest="500"
+                    BackgroundColor="AliceBlue"
+                    CornerRadius="30"
+                    Padding="0, 25"
+                    Clicked="SettingsButtonClicked"
                     IsEnabled="True">
             </Button>
         </VerticalStackLayout>

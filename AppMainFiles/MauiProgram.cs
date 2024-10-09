@@ -3,7 +3,7 @@ using Microcharts.Maui;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 using HealthApp.Database;
 
-namespace HealthApp
+namespace HealthApp.AppMainFiles
 {
     public static class MauiProgram
     {
@@ -20,7 +20,7 @@ namespace HealthApp
                 .UseSkiaSharp();
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

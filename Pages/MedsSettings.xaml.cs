@@ -10,14 +10,6 @@ namespace HealthApp
         public MedsSettings()
 		{
 			InitializeComponent();
-            _gridElements = new Dictionary<(int, int), View>();
-        }
-
-        private Dictionary<(int row, int column), View> _gridElements;
-
-        private void AddRowMedTable()
-        {
-            
         }
     
         private async void OnAddMedButtonClicked(object sender, EventArgs e)
@@ -55,17 +47,7 @@ namespace HealthApp
                 }
 
                 await DisplayAlert("Добре!", "Все чудово", "OK");
-
-                //await _database.AddMed(new Medicines
-                //{
-                //    DrugName = medName,
-                //    DaysToTake = Convert.ToInt16(medDays),
-                //    ReceptionHours = medTime
-                //});
             }
-
-
-
         }
 
         private async void OnChangeButtonClicked(object sender, EventArgs e)

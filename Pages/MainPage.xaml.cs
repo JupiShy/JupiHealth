@@ -1,6 +1,7 @@
 ﻿using HealthApp.Database;
 using HealthApp.Database.Tables;
 using Microcharts;
+using Microsoft.EntityFrameworkCore;
 using SkiaSharp;
 using System;
 
@@ -8,43 +9,28 @@ namespace HealthApp
 {
     public partial class MainPage : ContentPage
     {
-        public readonly DatabaseSource db = new DatabaseSource();
+        public string username = null;
         public MainPage()
         {
             InitializeComponent();
             CreateBarChart();
 
-            var context = new DatabaseSource();
-
+            if(username == null)
+            {
+                DisplayAlert("Вітаємо в JupiHealth!", "Ми допоможемо Вам зробити крок до здорового життя!", "Продовжити");
+            }
         }
 
-        public async Task AddUser(string name, int age)
+        public async void AddWaterButtonClicked(object sender, EventArgs e)
         {
-            var context = new DatabaseSource();
-
-            var newUser = new User
+            using (var db = new DatabaseSource())
             {
-                name = name,
-                age = age
-            };
+                var users = await db.user.ToListAsync();
 
-            // Додаємо користувача до бази даних
-            context.user.Add(newUser);
-
-            // Зберігаємо зміни до бази даних
-            await context.SaveChangesAsync();
-
-            Console.WriteLine($"User added with ID: {newUser.id}");
-        }
-
-        public void AddWaterButtonClicked(object sender, EventArgs e)
-        {
-            AddUser("Test", 11);
-
-            var users = db.user.ToList();
-            foreach (var user in users)
-            {
-                DisplayAlert("Yay", $"ID: {user.id}, Name: {user.name}, Age: {user.age}", "OK", "Назад");
+                foreach (var user in users)
+                {
+                    await DisplayAlert("Yay", $"Name: {user.name}, Age: {user.age}", "OK", "Назад");
+                }
             }
         }
 

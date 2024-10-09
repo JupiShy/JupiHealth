@@ -9,9 +9,9 @@ namespace HealthApp
         {
             InitializeComponent();
 
-            using (var context = new DatabaseSource())
+            using (var db = new DatabaseSource())
             {
-                context.InitializeDatabase();
+                db.InitializeDatabase();
             }
 
             MainPage = new AppShell();

@@ -85,7 +85,7 @@
                         BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="25"
                         Margin="0, -5, 0, -5"
                         Padding="-5"
-                        IsEnabled="True" WidthRequest="20" HeightRequest="20" CornerRadius="50"
+                        IsEnabled="True" WidthRequest="30" HeightRequest="30" CornerRadius="50"
                         Grid.Row="0" Grid.Column="3">
                     </Button>
 
@@ -118,7 +118,7 @@
                         Margin="0, -5, 0, -5"
                         Padding="-5"
                         BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="25"
-                        IsEnabled="True" WidthRequest="20" HeightRequest="20" CornerRadius="50"
+                        IsEnabled="True" WidthRequest="30" HeightRequest="30" CornerRadius="50"
                         Grid.Row="2" Grid.Column="3">
                     </Button>
 
