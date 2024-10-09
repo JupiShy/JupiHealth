@@ -9,10 +9,10 @@ namespace HealthApp.Database.Tables
 {
     public class User
     {
-        public int Id { get; set; }
+        public int id { get; set; }
 
-        public string Name { get; set; }
+        public string name { get; set; }
 
-        public int Age { get; set; }
+        public int age { get; set; }
     }
 }

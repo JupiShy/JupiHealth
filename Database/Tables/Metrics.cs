@@ -8,11 +8,11 @@ namespace HealthApp.Database.Tables
 {
     public class Metrics
     {
-        public int Id { get; set; }
-        public string Date { get; set; }
-        public float Weight { get; set; }
-        public float Height { get; set; }
-        public float Bmi { get; set; }
-        public float Water { get; set; }
+        public int id { get; set; }
+        public string date { get; set; }
+        public float weight { get; set; }
+        public float height { get; set; }
+        public float bmi { get; set; }
+        public float water { get; set; }
     }
 }

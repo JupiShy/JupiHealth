@@ -40,10 +40,8 @@
                     BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="20" Padding="0, 0, 0 ,5"
                     IsEnabled="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" CornerRadius="0"
                     Grid.Row="0" Grid.Column="3"
-                    Clicked="OnAddMedButtonClicked"
-                    Pressed="OnButtonPressed"
-                    Released="OnButtonReleased">
-              </Button>
+                    Clicked="OnAddMedButtonClicked">
+            </Button>
 
             <Label Text="Text" Grid.Column="0" Grid.Row="1" FontSize="18" BackgroundColor="AliceBlue"
                    TextColor="#593E99" Padding="10, 0 ,0, 0" VerticalTextAlignment="Center"></Label>
@@ -57,9 +55,7 @@
                 BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="20"
                 IsEnabled="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" CornerRadius="0"
                 Grid.Row="1" Grid.Column="3"
-                Clicked="OnChangeButtonClicked"
-                Pressed="OnButtonPressed"
-                Released="OnButtonReleased">
+                Clicked="OnChangeButtonClicked">
             </Button>
             
         </Grid>

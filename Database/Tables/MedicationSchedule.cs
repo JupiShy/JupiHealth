@@ -8,10 +8,10 @@ namespace HealthApp.Database.Tables
 {
     public class MedicationSchedule
     {
-        public int Id { get; set; }
-        public int MedId { get; set; }
-        public int MedNumber { get; set; }
-        public int Day { get; set; }
-        public string ReceptionHour { get; set; }
+        public int id { get; set; }
+        public int med_id { get; set; }
+        public int med_number { get; set; }
+        public int day { get; set; }
+        public string reception_hour { get; set; }
     }
 }

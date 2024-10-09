@@ -1,5 +1,4 @@
 ﻿using HealthApp.Database;
-using System.Data.SQLite;
 
 namespace HealthApp
 {

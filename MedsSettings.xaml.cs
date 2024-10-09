@@ -1,6 +1,5 @@
 ﻿using HealthApp.Database;
 using HealthApp.Database.Tables;
-using System.Data.SQLite;
 
 namespace HealthApp
 {
@@ -20,19 +19,7 @@ namespace HealthApp
         {
             
         }
-
-        private async void OnButtonPressed(object sender, EventArgs e)
-        {
-            var button = (Button)sender;
-            await button.ScaleTo(0.9, 50);
-        }
-
-        private async void OnButtonReleased(object sender, EventArgs e)
-        {
-            var button = (Button)sender;
-            await button.ScaleTo(1, 50);
-        }
-
+    
         private async void OnAddMedButtonClicked(object sender, EventArgs e)
         {
             string medName;

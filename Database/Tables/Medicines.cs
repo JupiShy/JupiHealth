@@ -1,5 +1,4 @@
-﻿using SQLite;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -8,21 +7,14 @@ using System.Threading.Tasks;
 
 namespace HealthApp.Database.Tables
 {
-    [SQLite.Table("medicines")]
     public class Medicines
     {
-        [PrimaryKey]
-        [AutoIncrement]
-        [SQLite.Column("id")]
-        public int Id { get; set; }
+        public int id { get; set; }
 
-        [SQLite.Column("drug_name")]
-        public string DrugName { get; set; }
+        public string drug_name { get; set; }
 
-        [SQLite.Column("days_to_take")]
-        public int DaysToTake { get; set; }
+        public int days_to_take { get; set; }
 
-        [SQLite.Column("reception_hours")]
-        public string ReceptionHours { get; set; }
+        public string reception_hours { get; set; }
     }
 }

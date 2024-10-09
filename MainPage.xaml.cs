@@ -24,8 +24,8 @@ namespace HealthApp
 
             var newUser = new User
             {
-                Name = name,
-                Age = age
+                name = name,
+                age = age
             };
 
             // Додаємо користувача до бази даних
@@ -34,7 +34,7 @@ namespace HealthApp
             // Зберігаємо зміни до бази даних
             await context.SaveChangesAsync();
 
-            Console.WriteLine($"User added with ID: {newUser.Id}");
+            Console.WriteLine($"User added with ID: {newUser.id}");
         }
 
         public void AddWaterButtonClicked(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace HealthApp
             var users = db.user.ToList();
             foreach (var user in users)
             {
-                DisplayAlert("Yay", $"ID: {user.Id}, Name: {user.Name}, Age: {user.Age}", "OK", "Назад");
+                DisplayAlert("Yay", $"ID: {user.id}, Name: {user.name}, Age: {user.age}", "OK", "Назад");
             }
         }
 
