@@ -22,12 +22,14 @@ namespace HealthApp
                 db.user.RemoveRange(db.user);
                 db.metrics.RemoveRange(db.metrics);
                 db.medicines.RemoveRange(db.medicines);
-                db.medication_schedules.RemoveRange(db.medication_schedules);
+                db.todays_schedule.RemoveRange(db.todays_schedule);
+                db.medicines_progress.RemoveRange(db.medicines_progress);
 
                 db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'user'");
                 db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'metrics'");
                 db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'medicines'");
                 db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'medication_schedules'");
+                db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'medicines_progress'");
 
                 await db.SaveChangesAsync();     
             }
@@ -35,13 +37,20 @@ namespace HealthApp
 
         private async void AboutButtonClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Про додаток", "Додаток розроблено Киричок Софією в межах курсового проєкту з ПАІС в ППФК", "ОК");
+            bool result = await DisplayAlert("Про додаток", "Додаток розроблено в межах курсового проєкту з ПАІС в ППФК " +
+                "з метою зробити процес лікування приємніше та простіше💜",
+                "Репозиторій GitHub", "ОК");
+
+            if (result)
+            {
+                await Browser.Default.OpenAsync("https://github.com/JupiShy/JupiHealth", BrowserLaunchMode.SystemPreferred);
+            }
         }
 
         private async void SettingsButtonClicked(object sender, EventArgs e)
         {
             string inputName = await DisplayPromptAsync("Налаштування профілю", "Введіть Ваше ім'я:");
-            await Task.Delay(100);
+            await Task.Delay(800);
 
             int inputAge;
             string inputAgeString = await DisplayPromptAsync("Налаштування профілю", "Введіть Ваш вік:");

@@ -21,15 +21,13 @@
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
                 <Label
-                    x:Name="timeOfDayLabel"
-                    Text="Добрий день,"
+                    Text="{Binding Greeting}"
                     FontAttributes="Bold"
                     TextColor="AliceBlue"
                     FontSize="25"
                     HorizontalTextAlignment="Center"/>
                 <Label
-                    x:Name="userNameLabel"
-                    Text="name"
+                    Text="{Binding Name}"
                     FontAttributes="Bold"
                     TextColor="AliceBlue"
                     FontSize="25"
@@ -163,7 +161,7 @@
                         FontSize="20"
                         SemanticProperties.HeadingLevel="Level2"/>
                     <Label 
-                        Text="XXXX мл" 
+                        Text="{Binding Water}" 
                         TextColor="#593E99"
                         HorizontalOptions="Start" 
                         HorizontalTextAlignment="Start"

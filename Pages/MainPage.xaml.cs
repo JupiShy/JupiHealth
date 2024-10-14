@@ -1,37 +1,43 @@
-﻿using HealthApp.Database;
-using HealthApp.Database.Tables;
+﻿using HealthApp.BindingHelpers;
+using HealthApp.Database;
 using Microcharts;
 using Microsoft.EntityFrameworkCore;
 using SkiaSharp;
-using System;
 
 namespace HealthApp
 {
     public partial class MainPage : ContentPage
     {
-        public string username = null;
+        private ViewModel viewModel;
         public MainPage()
         {
             InitializeComponent();
             CreateBarChart();
 
-            if(username == null)
-            {
-                DisplayAlert("Вітаємо в JupiHealth!", "Ми допоможемо Вам зробити крок до здорового життя!", "Продовжити");
-            }
+            viewModel = new ViewModel();
+            this.BindingContext = viewModel;
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            viewModel.UpdateData();
+        }
+
 
         public async void AddWaterButtonClicked(object sender, EventArgs e)
         {
             using (var db = new DatabaseSource())
             {
-                var users = await db.user.ToListAsync();
+                var dbHandler = new DatabaseHandler();
 
-                foreach (var user in users)
-                {
-                    await DisplayAlert("Yay", $"Name: {user.name}, Age: {user.age}", "OK", "Назад");
-                }
+                await dbHandler.AddWater(100);
+
+                await db.SaveChangesAsync();
             }
+
+            OnAppearing();
         }
 
         private void CreateBarChart()

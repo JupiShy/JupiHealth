@@ -13,11 +13,12 @@ namespace HealthApp.Database
         public DbSet<User> user { get; set; }
         public DbSet<Metrics> metrics { get; set; }
         public DbSet<Medicines> medicines { get; set; }
-        public DbSet<MedicationSchedule> medication_schedules { get; set; }
+        public DbSet<MedicinesProgress> medicines_progress { get; set; }
+        public DbSet<TodaysSchedule> todays_schedule { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "UserDatabase.db");
+            var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "UserData.db");
 
             optionsBuilder.UseSqlite($"Data Source={dbPath}");
         }

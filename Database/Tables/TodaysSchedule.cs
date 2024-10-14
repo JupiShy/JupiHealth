@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace HealthApp.Database.Tables
 {
-    public class MedicationSchedule
+    public class TodaysSchedule
     {
         public int id { get; set; }
         public int med_id { get; set; }
-        public int med_number { get; set; }
-        public int day { get; set; }
         public string reception_hour { get; set; }
     }
 }

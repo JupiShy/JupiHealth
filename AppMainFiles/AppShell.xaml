@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:HealthApp"
     Shell.FlyoutBehavior="Disabled"
     Title="HealthApp"
-    TitleColor="AliceBlue"
+    TitleColor="White"
     BackgroundColor="#624E88">
 
     
