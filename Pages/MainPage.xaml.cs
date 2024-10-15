@@ -2,6 +2,7 @@
 using HealthApp.Database;
 using Microcharts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using SkiaSharp;
 
 namespace HealthApp
@@ -25,19 +26,66 @@ namespace HealthApp
             viewModel.UpdateData();
         }
 
+        public async void ChangeParametersButtonClicked(object sender, EventArgs e)
+        {
+            string weightStr = await DisplayPromptAsync("Оновити параметри", "Введіть Вашу вагу (кг):", "OK", keyboard: Keyboard.Numeric);
+            await Task.Delay(800);
+            string heightStr = await DisplayPromptAsync("Оновити параметри", "Введіть Ваш зріст (см):", "OK", keyboard: Keyboard.Numeric);
+
+            if (double.TryParse(weightStr, out double weight) && double.TryParse(heightStr, out double height))
+            {
+                using (var db = new DatabaseSource())
+                {
+                    var dbHandler = new DatabaseHandler();
+
+                    await dbHandler.ChangeParameters(weight, height);
+
+                    await db.SaveChangesAsync();
+                }
+
+                OnAppearing();
+            }
+        }
+
+        public async void ChangeTargetButtonClicked(object sender, EventArgs e)
+        {
+            string targetStr = await DisplayPromptAsync("Змінити цільовий ІМТ", "Введіть Ваш цільовий ІМТ. " + Environment.NewLine +
+                "Майте на увазі, що здоровий показник від 18,5 до 24,9!", "OK", keyboard: Keyboard.Numeric);
+
+            if (double.TryParse(targetStr, out double target))
+            {
+                using (var db = new DatabaseSource())
+                {
+                    var dbHandler = new DatabaseHandler();
+
+                    await dbHandler.ChangeTarget(target);
+
+                    await db.SaveChangesAsync();
+                }
+
+                OnAppearing();
+            }
+        }
+
 
         public async void AddWaterButtonClicked(object sender, EventArgs e)
         {
-            using (var db = new DatabaseSource())
+            string input = await DisplayPromptAsync("Додати воду", "Введіть кількість (мл):", "OK", keyboard: Keyboard.Numeric);
+
+            if (int.TryParse(input, out int amount))
             {
-                var dbHandler = new DatabaseHandler();
+                    using (var db = new DatabaseSource())
+                    {
+                        var dbHandler = new DatabaseHandler();
 
-                await dbHandler.AddWater(100);
+                        await dbHandler.AddWater(amount);
 
-                await db.SaveChangesAsync();
+                        await db.SaveChangesAsync();
+                    }
+                
+                OnAppearing();
             }
-
-            OnAppearing();
+                
         }
 
         private void CreateBarChart()

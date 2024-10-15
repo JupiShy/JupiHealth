@@ -63,5 +63,108 @@ namespace HealthApp.BindingHelpers
                 }
             }
         }
+
+        public static string GetBMIValue()
+        {
+            using (var db = new DatabaseSource())
+            {
+                var metrics = db.metrics
+                .OrderByDescending(m => m.date)
+                .FirstOrDefault();
+
+                var previousMetrics = db.metrics
+                    .OrderByDescending(m => m.date)
+                    .Skip(1)
+                    .FirstOrDefault();
+
+                if (metrics != null)
+                {
+                    return Convert.ToString(metrics.bmi.ToString("F1"));
+                }
+                else if (previousMetrics != null)
+                {
+                    return Convert.ToString(previousMetrics.bmi.ToString("F1"));
+                }
+                else
+                {
+                    return "0.0";
+                }
+
+            }
+        }
+
+        public static string GetTargetValue()
+        {
+            using (var db = new DatabaseSource())
+            {
+                var user = db.user.FirstOrDefault();
+
+                if (user != null)
+                {
+                    return Convert.ToString(user.target);
+                }
+                else
+                {
+                    return "0,0";
+                }
+            }
+        }
+
+        public static string GetWeightValue()
+        {
+            using (var db = new DatabaseSource())
+            {
+                var metrics = db.metrics
+                .OrderByDescending(m => m.date)
+                .FirstOrDefault();
+
+                var previousMetrics = db.metrics
+                    .OrderByDescending(m => m.date)
+                    .Skip(1)
+                    .FirstOrDefault();
+
+                if (metrics != null)
+                {
+                    return Convert.ToString(metrics.weight + " кг");
+                }
+                else if (previousMetrics != null)
+                {
+                    return Convert.ToString(previousMetrics.height + " см");
+                }
+                else
+                {
+                    return "0 кг";
+                }
+
+            }
+        }
+
+        public static string GetHeightValue()
+        {
+            using (var db = new DatabaseSource())
+            {
+                var metrics = db.metrics
+                .OrderByDescending(m => m.date)
+                .FirstOrDefault();
+
+                var previousMetrics = db.metrics
+                    .OrderByDescending(m => m.date)
+                    .Skip(1)
+                    .FirstOrDefault();
+
+                if (metrics != null)
+                {
+                    return Convert.ToString(metrics.height + " см");
+                }
+                else if(previousMetrics != null)
+                {
+                    return Convert.ToString(previousMetrics.height + " см");
+                }
+                else
+                {
+                    return "0 см";
+                }
+            }
+        }
     }
 }

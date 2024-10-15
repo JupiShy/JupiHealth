@@ -14,5 +14,7 @@ namespace HealthApp.Database.Tables
         public string name { get; set; }
 
         public int age { get; set; }
+
+        public double target { get; set; }
     }
 }

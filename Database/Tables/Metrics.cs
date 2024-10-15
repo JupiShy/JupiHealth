@@ -10,9 +10,9 @@ namespace HealthApp.Database.Tables
     {
         public int id { get; set; }
         public string date { get; set; }
-        public float weight { get; set; }
-        public float height { get; set; }
-        public float bmi { get; set; }
-        public float water { get; set; }
+        public double weight { get; set; }
+        public double height { get; set; }
+        public double bmi { get; set; }
+        public double water { get; set; }
     }
 }

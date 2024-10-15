@@ -32,6 +32,7 @@
 
 
             <BoxView Color="AliceBlue"
+                     BackgroundColor="#CB80AB"
                      HeightRequest="10"
                      MaximumWidthRequest="350"
                      CornerRadius="20"
@@ -51,6 +52,7 @@
             </Button>
 
             <BoxView Color="AliceBlue"
+                     BackgroundColor="#CB80AB"
                      HeightRequest="10"
                      MaximumWidthRequest="350"
                      CornerRadius="20"
