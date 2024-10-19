@@ -101,6 +101,7 @@ namespace HealthApp.Database
             await db.SaveChangesAsync();
         }
 
+
         public static async Task AddMetricsIfNotExistsAsync()
         {
             using (var db = new DatabaseSource())
@@ -134,82 +135,57 @@ namespace HealthApp.Database
             var LastMetricsList = new List<double>();
             var DateMetricsList = new List<string>();
 
-            for (int i = 1; i <= 7; i++)
-            {
-                var metrics = db.metrics.Find(i);
-                double metric;
-                string date;
+            var lastMetrics = db.metrics
+                                .OrderByDescending(m => m.date)
+                                .Take(7)
+                                .ToList();
 
-                if (metrics == null)
-                {
-                    metric = 0;
-                    date = "N/A";
-                }
-                else
-                {
-                    metric = metrics.bmi;
-                    date = metrics.date;
-                }
+            lastMetrics.Reverse();
+
+            foreach (var metrics in lastMetrics)
+            {
+                double metric = metrics?.bmi ?? 0;
+                string date = metrics?.date ?? "N/A";
 
                 LastMetricsList.Add(metric);
                 DateMetricsList.Add(date);
             }
 
-            var entries = new List<ChartEntry>
-    {
-        new ChartEntry((float)LastMetricsList[0])
-        {
-            Label = DateMetricsList[0],
-            ValueLabel = LastMetricsList[0].ToString(),
-            Color = SKColor.Parse("#624E88")
-        },
-        new ChartEntry((float)LastMetricsList[1])
-        {
-            Label = DateMetricsList[1],
-            ValueLabel = LastMetricsList[1].ToString(),
-            Color = SKColor.Parse("#745B9A")
-        },
-        new ChartEntry((float)LastMetricsList[2])
-        {
-            Label = DateMetricsList[2],
-            ValueLabel = LastMetricsList[2].ToString(),
-            Color = SKColor.Parse("#8967B3")
-        },
-        new ChartEntry((float)LastMetricsList[3])
-        {
-            Label = DateMetricsList[3],
-            ValueLabel = LastMetricsList[3].ToString(),
-            Color = SKColor.Parse("#A270A0")
-        },
-        new ChartEntry((float)LastMetricsList[4])
-        {
-            Label = DateMetricsList[4],
-            ValueLabel = LastMetricsList[4].ToString(),
-            Color = SKColor.Parse("#CB80AB")
-        },
-        new ChartEntry((float)LastMetricsList[5])
-        {
-            Label = DateMetricsList[5],
-            ValueLabel = LastMetricsList[5].ToString(),
-            Color = SKColor.Parse("#D39A96")
-        },
-        new ChartEntry((float)LastMetricsList[6])
-        {
-            Label = DateMetricsList[6],
-            ValueLabel = LastMetricsList[6].ToString(),
-            Color = SKColor.Parse("#E6D9A2")
-        }
-    };
+            var user = db.user.Find(1);
+
+            var entries = new List<ChartEntry>();
+
+            if (user != null)
+            {
+                entries.Add(new ChartEntry((float)user.target)
+                {
+                    Label = "Ціль",
+                    ValueLabel = user.target.ToString(),
+                    Color = SKColor.Parse("#49386b")
+                });
+            }
+
+            for (int i = 0; i < LastMetricsList.Count; i++)
+            {
+                entries.Add(new ChartEntry((float)LastMetricsList[i])
+                {
+                    Label = DateMetricsList[i],
+                    ValueLabel = LastMetricsList[i].ToString(),
+                    Color = SKColor.Parse(GetColour(i))
+                });
+            }
 
             return entries;
         }
 
-
-        private float NormalizeValue(float value)
+        private string GetColour(int index)
         {
-            float min = 10;
-            float max = 50;
-            return (value - min) / (max - min) * 100;
+            string[] colors = new string[]
+            {
+                "#624E88", "#745B9A", "#8967B3", "#A270A0", "#CB80AB", "#D39A96", "#E6D9A2"
+            };
+
+            return colors[index % colors.Length];
         }
     }
 }
