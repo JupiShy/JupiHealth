@@ -209,7 +209,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <Label Text="Цей тиждень:"
+                    <Label Text="Динаміка ІМТ:"
                            FontSize="20"
                            FontAttributes="Bold"
                            TextColor="#593E99"
@@ -228,7 +228,7 @@
                            VerticalOptions="Center"
                            Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
 
-                        <charts:ChartView x:Name="ChartWeek" HeightRequest="210"></charts:ChartView>
+                        <charts:ChartView x:Name="LastDaysChart" HeightRequest="210"></charts:ChartView>
                     </Frame>
                 </Grid>
             </Frame>
