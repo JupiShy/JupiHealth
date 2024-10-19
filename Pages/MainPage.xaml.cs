@@ -87,6 +87,18 @@ namespace HealthApp
 
         }
 
+        public int GetLabelTextSize()
+        {
+            if (DeviceInfo.Idiom == DeviceIdiom.Phone)
+            {
+                return 36;
+            }
+            else
+            {
+                return 14;
+            }
+        }
+
         private void CreateBarChart()
         {
             using (var db = new DatabaseSource())
@@ -96,7 +108,10 @@ namespace HealthApp
 
                 LastDaysChart.Chart = new BarChart
                 {
-                    Entries = entries
+                    Entries = entries,
+                    LabelTextSize = GetLabelTextSize(),
+                    ValueLabelTextSize = GetLabelTextSize(),
+                    ValueLabelOrientation = Orientation.Horizontal
                 };
             }
         }

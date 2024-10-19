@@ -157,7 +157,7 @@ namespace HealthApp.Database
 
             var entries = new List<ChartEntry>
     {
-        new ChartEntry((float)LastMetricsList[0]) // Індекси починаються з 0
+        new ChartEntry((float)LastMetricsList[0])
         {
             Label = DateMetricsList[0],
             ValueLabel = LastMetricsList[0].ToString(),
