@@ -228,7 +228,7 @@
                            VerticalOptions="Center"
                            Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
 
-                        <charts:ChartView x:Name="LastDaysChart" HeightRequest="350"></charts:ChartView>
+                        <charts:ChartView x:Name="LastDaysChart" HeightRequest="230"></charts:ChartView>
                     </Frame>
                 </Grid>
             </Frame>

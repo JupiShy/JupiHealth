@@ -142,13 +142,32 @@ namespace HealthApp.Database
 
             lastMetrics.Reverse();
 
-            foreach (var metrics in lastMetrics)
-            {
-                double metric = metrics?.bmi ?? 0;
-                string date = metrics?.date ?? "N/A";
+            bool isNull = lastMetrics.All(m => m?.bmi == null);
 
-                LastMetricsList.Add(metric);
-                DateMetricsList.Add(date);
+            if (isNull)
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    LastMetricsList.Add(1);
+                    DateMetricsList.Add("N/A");
+                }
+            }
+            else
+            {
+                foreach (var metrics in lastMetrics)
+                {
+                    double metric = metrics?.bmi ?? 0;
+                    string date = metrics?.date ?? "N/A";
+
+                    LastMetricsList.Add(metric);
+                    DateMetricsList.Add(date);
+                }
+            }
+
+            for(int i = LastMetricsList.Count; i < 7; i++)
+    {
+                LastMetricsList.Add(0);
+                DateMetricsList.Add("N/A");
             }
 
             var user = db.user.Find(1);
