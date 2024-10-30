@@ -7,57 +7,62 @@
 
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#998CBB" Offset="0.0" />
-            <GradientStop Color="#B89FD3" Offset="0.25" />
-            <GradientStop Color="#E7ADC4" Offset="0.65" />
-            <GradientStop Color="#F3ECCC" Offset="1.0" />
+            <GradientStop Color="#8C6A9B" Offset="0.0" />
+            <GradientStop Color="#BF9FDA" Offset="1.0" />
         </LinearGradientBrush>
     </ContentPage.Background>
 
+
     <ScrollView>
-        <Grid x:Name="MedsTable" Margin="10" Padding="10" ColumnSpacing="5" RowSpacing="5" MaximumWidthRequest="800">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+        <StackLayout Margin="10">
 
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+            <Grid Margin="0, 10, 0, 0" ColumnSpacing="5" RowSpacing="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-            <Label Text="Name" Grid.Column="0" Grid.Row="0" FontSize="16" FontAttributes="Bold" Padding="10, 0 ,0, 0"
-                   BackgroundColor="AliceBlue" TextColor="#593E99" VerticalTextAlignment="Center"></Label>
-            <Label Text="Days" Grid.Column="1" Grid.Row="0" FontSize="16" FontAttributes="Bold" Padding="10, 0 ,0, 0"
-                   BackgroundColor="AliceBlue" TextColor="#593E99" VerticalTextAlignment="Center"></Label>
-            <Label Text="Times" Grid.Column="2" Grid.Row="0" FontSize="16" FontAttributes="Bold" Padding="10, 0 ,0, 0"
-                   BackgroundColor="AliceBlue" TextColor="#593E99" VerticalTextAlignment="Center"></Label>
-            <Button 
-                    x:Name="plusMedButton"
+                <Label Text="Назва" Grid.Column="0" Grid.Row="0" FontSize="18" FontAttributes="Bold" Padding="5, 0 ,0, 0"
+                        BackgroundColor="AliceBlue" TextColor="#593E99" VerticalTextAlignment="Center"/>
+
+                <Label Text="Днів" Grid.Column="1" Grid.Row="0" FontSize="18" FontAttributes="Bold" Padding="5, 0 ,0, 0"
+                        BackgroundColor="AliceBlue" TextColor="#593E99" VerticalTextAlignment="Center" />
+
+                <Label Text="Години" Grid.Column="2" Grid.Row="0" FontSize="18" FontAttributes="Bold" Padding="5, 0 ,0, 0"
+                        BackgroundColor="AliceBlue" TextColor="#593E99" VerticalTextAlignment="Center" />
+            </Grid>
+
+
+            <ListView ItemsSource="{Binding medicines}" ItemTapped="OnMedicineTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <Label Text="{Binding drug_name}" FontSize="16" WidthRequest="150" TextColor="White"/>
+                                <Label Text="{Binding days_to_take}" FontSize="16" WidthRequest="50" TextColor="White"/>
+                                <Label Text="{Binding reception_hours}" FontSize="16" WidthRequest="200" TextColor="White"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Додати" Margin="0, 0, 15, 0" FontSize="20" TextColor="White" FontAttributes="Bold"></Label>
+                <Button 
+                    x:Name="changeIndexButton"
                     Text="+" FontAttributes="Bold" FontFamily="Tahoma"
-                    BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="20" Padding="0, 0, 0 ,5"
-                    IsEnabled="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" CornerRadius="0"
-                    Grid.Row="0" Grid.Column="3"
-                    Clicked="OnAddMedButtonClicked">
-            </Button>
+                    BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="25"
 
-            <Label Text="Text" Grid.Column="0" Grid.Row="1" FontSize="18" BackgroundColor="AliceBlue"
-                   TextColor="#593E99" Padding="10, 0 ,0, 0" VerticalTextAlignment="Center"></Label>
-            <Label Text="Text" Grid.Column="1" Grid.Row="1" FontSize="18" BackgroundColor="AliceBlue"
-                   TextColor="#593E99" Padding="10, 0 ,0, 0" VerticalTextAlignment="Center"></Label>
-            <Label Text="Text" Grid.Column="2" Grid.Row="1" FontSize="18" BackgroundColor="AliceBlue"
-                   TextColor="#593E99" Padding="10, 0 ,0, 0" VerticalTextAlignment="Center"></Label>
-            <Button 
-                x:Name="medButton"
-                Text="···" FontAttributes="Bold" FontFamily="Tahoma"
-                BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="20"
-                IsEnabled="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" CornerRadius="0"
-                Grid.Row="1" Grid.Column="3"
-                Clicked="OnChangeButtonClicked">
-            </Button>
-            
-        </Grid>
+                    Padding="-5"
+                        Clicked="OnAddMedButtonClicked"
+                    IsEnabled="True" WidthRequest="30" HeightRequest="30" CornerRadius="50">
+                </Button>
+            </HorizontalStackLayout>
+        </StackLayout>
     </ScrollView>
 </ContentPage>

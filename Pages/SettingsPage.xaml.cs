@@ -28,7 +28,7 @@ namespace HealthApp
                 db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'user'");
                 db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'metrics'");
                 db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'medicines'");
-                db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'medication_schedules'");
+                db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'todays_schedule'");
                 db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'medicines_progress'");
 
                 await db.SaveChangesAsync();     
@@ -37,7 +37,7 @@ namespace HealthApp
 
         private async void AboutButtonClicked(object sender, EventArgs e)
         {
-            bool result = await DisplayAlert("Про додаток", "Додаток розроблено в межах курсового проєкту з ПАІС в ППФК " +
+            bool result = await DisplayAlert("Про додаток", "Цей додаток було розроблено в межах курсового проєкту з ПАІС в ППФК " +
                 "з метою зробити процес лікування приємніше та простіше💜",
                 "Репозиторій GitHub", "ОК");
 

@@ -15,7 +15,7 @@
     <ScrollView>
         <VerticalStackLayout
         Padding="30,0"
-        Spacing="25">
+        Spacing="15">
 
             <Frame BackgroundColor="AliceBlue"
                CornerRadius="30"
@@ -56,7 +56,7 @@
                         BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="25"
                         Margin="0, -5, 0, -5"
                         Padding="-5"
-                        IsEnabled="True" WidthRequest="20" HeightRequest="20" CornerRadius="50"
+                        IsEnabled="True" WidthRequest="40" HeightRequest="40" CornerRadius="50"
                         Grid.Row="0" Grid.Column="2">
                     </Button>
 
@@ -64,11 +64,15 @@
 
             </Frame>
 
-            <BoxView Color="AliceBlue"
-                 HeightRequest="10"
-                 MaximumWidthRequest="350"
-                 CornerRadius="20"
-                 HorizontalOptions="Fill"/>
+            <Frame BackgroundColor="AliceBlue"
+               HeightRequest="10"
+               MaximumWidthRequest="350"
+               CornerRadius="20"
+               Padding="0"
+               Margin="0"
+               HorizontalOptions="Fill"
+               BorderColor="Transparent"
+               HasShadow="False" />
 
             <Frame BackgroundColor="AliceBlue"
                CornerRadius="30"
@@ -96,8 +100,8 @@
                        FontAttributes="Bold"
                        FontSize="20"
                        HorizontalTextAlignment="Center"
-                       Margin="0,0,0,10"
-                       Grid.Row="0" Grid.Column="1"
+                       Margin="0,0,0,15"
+                       Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
                        ></Label>
 
                     <ScrollView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
@@ -112,48 +116,20 @@
                        HorizontalOptions="FillAndExpand"
                        VerticalOptions="Center"
                        Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+                            
 
-                            <Grid x:Name="TodayMedList" ColumnSpacing="10" RowSpacing="10">
-
-                                <!-- оце видалю перед написанням бека -->
-
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="0" Grid.Column="0"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="0" Grid.Column="1"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="0" Grid.Column="2"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="1" Grid.Column="0"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="1" Grid.Column="1"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="1" Grid.Column="2"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="2" Grid.Column="0"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="2" Grid.Column="1"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="2" Grid.Column="2"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="3" Grid.Column="0"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="3" Grid.Column="1"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="3" Grid.Column="2"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="4" Grid.Column="0"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="4" Grid.Column="1"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="4" Grid.Column="2"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="5" Grid.Column="0"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="5" Grid.Column="1"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="5" Grid.Column="2"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="6" Grid.Column="0"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="6" Grid.Column="1"/>
-                                <Label Text="Елемент" TextColor="#593E99" Grid.Row="6" Grid.Column="2"/>
-                            </Grid>
+                            <ListView ItemsSource="{Binding obs_schedule}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal" Padding="10">
+                                                <Label Text="{Binding MedName}" FontSize="16" WidthRequest="150" TextColor="Black"/>
+                                                <Label Text="{Binding reception_hour}" FontSize="16" WidthRequest="50" TextColor="Black"/>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
 
                         </Frame>
                     </ScrollView>
@@ -161,6 +137,15 @@
                 </Grid>
 
             </Frame>
+
+            <Button 
+            x:Name="changeIndexButton"
+            Text="+" FontAttributes="Bold" FontFamily="Tahoma"
+            BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="25"
+            Padding="-5"
+                Clicked="OnShowListAlert"
+            IsEnabled="True" WidthRequest="30" HeightRequest="30" CornerRadius="50">
+            </Button>
 
         </VerticalStackLayout>
     </ScrollView>

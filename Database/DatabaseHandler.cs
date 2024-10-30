@@ -206,5 +206,24 @@ namespace HealthApp.Database
 
             return colors[index % colors.Length];
         }
+
+        public async Task AddMedicine(string name, int days, string hours)
+        {
+            var meds = new Medicines
+            {
+                drug_name = name,
+                days_to_take = days,
+                reception_hours = hours
+            };
+
+            db.medicines.Add(meds);
+            await db.SaveChangesAsync();
+        }
+
+        public async Task<List<Medicines>> GetMedicinesList()
+        {
+            var list = await db.medicines.ToListAsync();
+            return list;
+        }
     }
 }

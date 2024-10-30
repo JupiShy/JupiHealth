@@ -31,12 +31,15 @@
             </Button>
 
 
-            <BoxView Color="AliceBlue"
-                     BackgroundColor="#CB80AB"
-                     HeightRequest="10"
-                     MaximumWidthRequest="350"
-                     CornerRadius="20"
-                     HorizontalOptions="Fill"/>
+            <Frame BackgroundColor="AliceBlue"
+                   HeightRequest="10"
+                   MaximumWidthRequest="350"
+                   CornerRadius="20"
+                   Padding="0"
+                   Margin="0"
+                   HorizontalOptions="Fill"
+                   BorderColor="Transparent"
+                   HasShadow="False" />
 
             <Button Text="Про додаток"
                     TextColor="#593E99"
@@ -51,12 +54,15 @@
                     IsEnabled="True">
             </Button>
 
-            <BoxView Color="AliceBlue"
-                     BackgroundColor="#CB80AB"
-                     HeightRequest="10"
-                     MaximumWidthRequest="350"
-                     CornerRadius="20"
-                     HorizontalOptions="Fill"/>
+            <Frame BackgroundColor="AliceBlue"
+                   HeightRequest="10"
+                   MaximumWidthRequest="350"
+                   CornerRadius="20"
+                   Padding="0"
+                   Margin="0"
+                   HorizontalOptions="Fill"
+                   BorderColor="Transparent"
+                   HasShadow="False" />
 
             <Button Text="Налаштування профілю"
                     TextColor="#593E99"

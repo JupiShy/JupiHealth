@@ -17,7 +17,7 @@
     <ScrollView>
         <VerticalStackLayout
             Padding="25,20"
-            Spacing="20">
+            Spacing="14">
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
                 <Label
@@ -126,11 +126,15 @@
 
             </Frame>
 
-            <BoxView Color="AliceBlue"
-                     HeightRequest="10"
-                     MaximumWidthRequest="350"
-                     CornerRadius="20"
-                     HorizontalOptions="Fill"/>
+            <Frame BackgroundColor="AliceBlue"
+                   HeightRequest="10"
+                   MaximumWidthRequest="350"
+                   CornerRadius="20"
+                   Padding="0"
+                   Margin="0"
+                   HorizontalOptions="Fill"
+                   BorderColor="Transparent"
+                   HasShadow="False" />
 
             <Frame BackgroundColor="AliceBlue"
                    MaximumWidthRequest="500"
@@ -183,18 +187,20 @@
 
             </Frame>
 
-            <BoxView Color="AliceBlue"
-                     HeightRequest="10"
-                     MaximumWidthRequest="350"
-                     CornerRadius="20"
-                     HorizontalOptions="Fill"/>
+            <Frame BackgroundColor="AliceBlue"
+                   HeightRequest="5"
+                   MaximumWidthRequest="350"
+                   CornerRadius="20"
+                   HorizontalOptions="Fill"
+                   BorderColor="Transparent"
+                   HasShadow="False" />
 
             <Frame BackgroundColor="AliceBlue"
                    CornerRadius="20"
                    BorderColor="Transparent"
                    MaximumWidthRequest="500"
                    HasShadow="False"
-                   Padding="10"
+                   Padding="5"
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="Center">
 
@@ -214,7 +220,7 @@
                            FontAttributes="Bold"
                            TextColor="#593E99"
                            HorizontalTextAlignment="Center"
-                           Margin="0,0,0,10"
+                           Margin="0,-15,0,10"
                            Grid.Column="1"></Label>
                     
                     <Frame BackgroundColor="White"
@@ -223,12 +229,12 @@
                            MaximumWidthRequest="400"
                            MinimumWidthRequest="250"
                            HasShadow="False"
-                           Padding="10"
+                           Padding="5, 25, 5, 20"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="Center"
                            Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
 
-                        <charts:ChartView x:Name="LastDaysChart" HeightRequest="230"></charts:ChartView>
+                        <charts:ChartView x:Name="LastDaysChart" HeightRequest="200"></charts:ChartView>
                     </Frame>
                 </Grid>
             </Frame>
