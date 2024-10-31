@@ -15,5 +15,7 @@ namespace HealthApp.Database.Tables
         public int day_num { get; set; }
 
         public int times {  get; set; }
+
+        public string? last_schedule_date { get; set; }
     }
 }

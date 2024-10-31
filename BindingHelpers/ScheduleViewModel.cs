@@ -24,14 +24,65 @@ namespace HealthApp.BindingHelpers
             LoadMed();
         }
 
-        private async void LoadMed()
+        //public async Task DeleteItem(TodaysSchedule schedule)
+        //{
+        //    _db.todays_schedule.Remove(schedule);
+        //    await _db.SaveChangesAsync();
+
+        //    var medProgress = await _db.medicines_progress.ToListAsync();
+
+        //    var remainingCount = await _db.todays_schedule.CountAsync(ts => ts.med_id == schedule.med_id);
+
+        //    if (remainingCount == 0)
+        //    {
+        //        var medicineProgress = medProgress.FirstOrDefault(mp => mp.med_id == schedule.med_id);
+
+        //        if (medicineProgress != null && medicineProgress.day_num > 0)
+        //        {
+        //            medicineProgress.day_num -= 1;
+        //            await _db.SaveChangesAsync();
+        //        }
+        //    }
+
+        //    obs_schedule.Remove(schedule);
+        //    LoadMed();
+        //}
+
+        private async Task LoadMed()
         {
             var schedule = await _db.todays_schedule.ToListAsync();
             obs_schedule.Clear();
 
             foreach (var row in schedule)
             {
-                obs_schedule.Add(row);
+                if(row.is_consumed != 1) obs_schedule.Add(row);
+            }
+        }
+
+        public async Task MarkAsConsumed(TodaysSchedule schedule)
+        {
+            using (var db = new DatabaseSource())
+            {
+                var itemToUpdate = await db.todays_schedule.FindAsync(schedule.id);
+                if (itemToUpdate != null)
+                {
+                    itemToUpdate.is_consumed = 1;
+                    await db.SaveChangesAsync();
+                    obs_schedule.Remove(schedule);
+                }
+
+                bool allConsumed = !db.todays_schedule
+                    .Any(ts => ts.med_id == schedule.med_id && ts.is_consumed == 0);
+
+                if (allConsumed)
+                {
+                    var medicineProgress = await db.medicines_progress.FirstOrDefaultAsync(mp => mp.med_id == schedule.med_id);
+                    if (medicineProgress != null && medicineProgress.day_num > 0)
+                    {
+                        medicineProgress.day_num -= 1;
+                        await db.SaveChangesAsync();
+                    }
+                }
             }
         }
     }

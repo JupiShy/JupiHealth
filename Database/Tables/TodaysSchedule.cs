@@ -4,7 +4,8 @@
     {
         public int id { get; set; }
         public int med_id { get; set; }
-        public string reception_hour { get; set; }
+        public string? reception_hour { get; set; }
+        public int is_consumed { get; set; }
 
         public string MedName
         {

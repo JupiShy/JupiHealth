@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>HealthApp</ApplicationTitle>
+		<ApplicationTitle>JupiHealth</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.healthapp</ApplicationId>

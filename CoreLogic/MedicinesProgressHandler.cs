@@ -25,15 +25,18 @@ namespace HealthApp.CoreLogic
                     {
                         var med_progress = new MedicinesProgress
                         {
-                            id = medicine.id,
+                            med_id = medicine.id,
                             day_num = medicine.days_to_take,
-                            times = ConvertTimeString(medicine.reception_hours)
+                            times = ConvertTimeString(medicine.reception_hours),
+                            last_schedule_date = DateTime.Today.ToString("yyyy-MM-dd")
                         };
 
                         db.medicines_progress.Add(med_progress);
                     }
                 }
                 await db.SaveChangesAsync();
+
+                Console.WriteLine("MedProgressAddNew works");
             }     
         }
 

@@ -42,7 +42,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" Padding="10">
-                                <Label Text="{Binding drug_name}" FontSize="16" WidthRequest="150" TextColor="White"/>
+                                <Label Text="{Binding drug_name}" FontSize="16" FontAttributes="Bold" WidthRequest="150" TextColor="White"/>
                                 <Label Text="{Binding days_to_take}" FontSize="16" WidthRequest="50" TextColor="White"/>
                                 <Label Text="{Binding reception_hours}" FontSize="16" WidthRequest="200" TextColor="White"/>
                             </StackLayout>

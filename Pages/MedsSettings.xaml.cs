@@ -73,20 +73,6 @@ namespace HealthApp
             OnAppearing();
         }
 
-        private async void ShowMedicinesClick(object sender, EventArgs e)
-        {
-            using (var db = new DatabaseSource())
-            {
-                var dbHandler = new DatabaseHandler();
-
-                var medicinesList = await dbHandler.GetMedicinesList();
-
-                var displayText = string.Join(Environment.NewLine, medicinesList.Select(m => $"{m.drug_name} - {m.days_to_take} днів (Час прийому: {m.reception_hours})"));
-
-                await DisplayAlert("Список медикаментів", displayText, "OK");
-            }
-        }
-
 
         private async void OnMedicineTapped(object sender, ItemTappedEventArgs e)
         {

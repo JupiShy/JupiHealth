@@ -116,14 +116,14 @@
                        HorizontalOptions="FillAndExpand"
                        VerticalOptions="Center"
                        Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
-                            
 
-                            <ListView ItemsSource="{Binding obs_schedule}">
+
+                            <ListView ItemsSource="{Binding obs_schedule}" ItemTapped="OnScheduleTapped">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
                                             <StackLayout Orientation="Horizontal" Padding="10">
-                                                <Label Text="{Binding MedName}" FontSize="16" WidthRequest="150" TextColor="Black"/>
+                                                <Label Text="{Binding MedName}" FontSize="16" WidthRequest="200" TextColor="Black"/>
                                                 <Label Text="{Binding reception_hour}" FontSize="16" WidthRequest="50" TextColor="Black"/>
                                             </StackLayout>
                                         </ViewCell>
@@ -144,6 +144,14 @@
             BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="25"
             Padding="-5"
                 Clicked="OnShowListAlert"
+            IsEnabled="True" WidthRequest="30" HeightRequest="30" CornerRadius="50">
+            </Button>
+
+            <Button 
+            Text="+" FontAttributes="Bold" FontFamily="Tahoma"
+            BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="25"
+            Padding="-5"
+                Clicked="OnShowScheduleAlert"
             IsEnabled="True" WidthRequest="30" HeightRequest="30" CornerRadius="50">
             </Button>
 
