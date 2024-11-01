@@ -110,6 +110,73 @@ namespace HealthApp.BindingHelpers
             }
         }
 
+        public static string GetBMIColor()
+        {
+            double bmi = 0;
+
+            using (var db = new DatabaseSource())
+            {
+                var metrics = db.metrics
+                .OrderByDescending(m => m.date)
+                .FirstOrDefault();
+
+                var previousMetrics = db.metrics
+                    .OrderByDescending(m => m.date)
+                    .Skip(1)
+                    .FirstOrDefault();
+
+                if (metrics != null)
+                {
+                    bmi = metrics.bmi;
+                }
+                else if (previousMetrics != null)
+                {
+                    bmi = previousMetrics.bmi;
+                }
+            }
+
+            return GetColor(bmi);
+        }
+
+        public static string GetTargetColor()
+        {
+            double targetBmi = 0;
+
+            using (var db = new DatabaseSource())
+            {
+                
+
+                var user = db.user.FirstOrDefault();
+
+                if (user != null)
+                {
+                    targetBmi = user.target;
+                }
+            }
+
+            return GetColor(targetBmi);
+        }
+
+        private static string GetColor(double value)
+        {
+            string color;
+
+            if(value >= 18.5 && value <= 24.9)
+            {
+                color = "#98FB98";
+            }
+            else if(value < 16 || value > 35)
+            {
+                color = "#FA8072";
+            }
+            else
+            {
+                color = "#FFCC99";
+            }
+
+            return color;
+        }
+
         public static string GetWeightValue()
         {
             using (var db = new DatabaseSource())

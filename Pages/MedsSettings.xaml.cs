@@ -33,10 +33,11 @@ namespace HealthApp
             {
                 while (true)
                 {
-                    medName = await DisplayPromptAsync("Назва", "Введіть назву:");
-                    if (!string.IsNullOrEmpty(medName))
+                    medName = await DisplayPromptAsync("Назва", "Введіть назву (до 30 символів):");
+                    if (!string.IsNullOrEmpty(medName) || medName.Length <= 30)
                         break;
-                    await DisplayAlert("Помилка", "Неправильно введено назву, спробуйте ще раз.", "OK", "Назад");
+                    bool ans = await DisplayAlert("Помилка", "Неправильно введено назву, спробуйте ще раз.", "OK", "Назад");
+                    if (ans == false) break;
                 }
 
                 while (true)
@@ -44,7 +45,8 @@ namespace HealthApp
                     medDays = await DisplayPromptAsync("Днів", "Введіть, скільки днів Ви маєте приймати цей препарат:");
                     if (int.TryParse(medDays, out days) && days > 0)
                         break;
-                    await DisplayAlert("Помилка", "Неправильно введено кількість днів, спробуйте ще раз.", "OK", "Назад");
+                    bool ans = await DisplayAlert("Помилка", "Неправильно введено кількість днів, спробуйте ще раз.", "OK", "Назад");
+                    if (ans == false) break;
                 }
 
                 while (true)
@@ -65,7 +67,8 @@ namespace HealthApp
                     }
                     else 
                     {
-                        await DisplayAlert("Помилка", "Неправильно введено час, спробуйте ще раз.", "OK", "Назад");
+                        bool ans = await DisplayAlert("Помилка", "Неправильно введено час, спробуйте ще раз.", "OK", "Назад");
+                        if (ans == false) break;
                     }
                 }   
             }

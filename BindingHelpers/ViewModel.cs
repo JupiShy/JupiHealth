@@ -12,6 +12,8 @@ namespace HealthApp.BindingHelpers
         private string _weight;
         private string _height;
         private string _target;
+        private string _bmiValueColor;
+        private string _bmiTargetColor;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public ViewModel()
@@ -33,6 +35,8 @@ namespace HealthApp.BindingHelpers
             Weight = DataForBindings.GetWeightValue();
             Height = DataForBindings.GetHeightValue();
             Target = DataForBindings.GetTargetValue();
+            BMIValueColor = DataForBindings.GetBMIColor();
+            BMITargetColor = DataForBindings.GetTargetColor();
         }
 
         public string Name
@@ -102,6 +106,26 @@ namespace HealthApp.BindingHelpers
             {
                 _target = value;
                 OnPropertyChanged(nameof(Target));
+            }
+        }
+
+        public string BMIValueColor
+        {
+            get => _bmiValueColor;
+            set
+            {
+                _bmiValueColor = value;
+                OnPropertyChanged(nameof(BMIValueColor));
+            }
+        }
+
+        public string BMITargetColor
+        {
+            get => _bmiTargetColor;
+            set
+            {
+                _bmiTargetColor = value;
+                OnPropertyChanged(nameof(BMITargetColor));
             }
         }
     }

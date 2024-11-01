@@ -24,14 +24,17 @@
                     Text="{Binding Greeting}"
                     FontAttributes="Bold"
                     TextColor="AliceBlue"
-                    FontSize="25"
+                    FontSize="20"
                     HorizontalTextAlignment="Center"/>
                 <Label
                     Text="{Binding Name}"
+                    MaximumWidthRequest ="200"
+                    LineBreakMode="NoWrap"
+                    FontAutoScalingEnabled="True"
                     FontAttributes="Bold"
                     TextColor="AliceBlue"
-                    FontSize="25"
-                    HorizontalTextAlignment="Center"/>
+                    FontSize="20"
+                    HorizontalTextAlignment="Start"/>
             </HorizontalStackLayout>
             
 
@@ -71,6 +74,8 @@
                         x:Name="currentIndexLabel"
                         Text="{Binding BMI}"
                         TextColor="#593E99"
+                        FontAttributes="Bold"
+                        BackgroundColor="{Binding BMIValueColor}"
                         FontSize="20"
                         HorizontalTextAlignment="Center"
                         VerticalTextAlignment="Center"
@@ -107,6 +112,8 @@
                         x:Name="targetWeightLabel"
                         Text="{Binding Target}"
                         TextColor="#593E99"
+                        BackgroundColor="{Binding BMITargetColor}"
+                        FontAttributes="Bold"
                         FontSize="20"
                         HorizontalTextAlignment="Center"
                         Margin="20,0,0,0"

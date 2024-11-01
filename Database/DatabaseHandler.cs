@@ -101,6 +101,64 @@ namespace HealthApp.Database
             await db.SaveChangesAsync();
         }
 
+        public async Task<User?> GetUserInfo()
+        {
+            return await db.user.FindAsync(1);
+        }
+
+        public async Task ChangeUserName(string name)
+        {
+
+            var user = await db.user.FindAsync(1);
+
+            if (user != null)
+            {
+                user.name = name;
+
+                db.user.Update(user);
+            }
+            else
+            {
+                user = new User
+                {
+                    id = 1,
+                    name = name,
+                    age = 0
+                };
+
+                db.user.Add(user);
+
+            }
+
+            await db.SaveChangesAsync();
+        }
+
+        public async Task ChangeUserAge(int age)
+        {
+
+            var user = await db.user.FindAsync(1);
+
+            if (user != null)
+            {
+                user.age = age;
+
+                db.user.Update(user);
+            }
+            else
+            {
+                user = new User
+                {
+                    id = 1,
+                    name = "користувач",
+                    age = age
+                };
+
+                db.user.Add(user);
+
+            }
+
+            await db.SaveChangesAsync();
+        }
 
         public static async Task AddMetricsIfNotExistsAsync()
         {
