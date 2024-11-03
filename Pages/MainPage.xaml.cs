@@ -109,6 +109,7 @@ namespace HealthApp
                 LastDaysChart.Chart = new BarChart
                 {
                     Entries = entries,
+                    Margin = 22,
                     LabelTextSize = GetLabelTextSize(),
                     ValueLabelTextSize = GetLabelTextSize(),
                     ValueLabelOrientation = Orientation.Horizontal

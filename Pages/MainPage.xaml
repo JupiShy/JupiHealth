@@ -233,7 +233,7 @@
                     <Frame BackgroundColor="White"
                            CornerRadius="20"
                            BorderColor="Transparent"
-                           MaximumWidthRequest="400"
+                           MaximumWidthRequest="350"
                            MinimumWidthRequest="250"
                            HasShadow="False"
                            Padding="5, 25, 5, 20"
@@ -241,7 +241,7 @@
                            VerticalOptions="Center"
                            Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
 
-                        <charts:ChartView x:Name="LastDaysChart" HeightRequest="200"></charts:ChartView>
+                        <charts:ChartView x:Name="LastDaysChart" HeightRequest="210" HorizontalOptions="StartAndExpand"></charts:ChartView>
                     </Frame>
                 </Grid>
             </Frame>
