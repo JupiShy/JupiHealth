@@ -138,7 +138,7 @@
 
             </Frame>
 
-            <Button 
+            <!--<Button 
             x:Name="changeIndexButton"
             Text="+" FontAttributes="Bold" FontFamily="Tahoma"
             BackgroundColor="AliceBlue" TextColor="#313E77" FontSize="25"
@@ -153,7 +153,7 @@
             Padding="-5"
                 Clicked="OnShowScheduleAlert"
             IsEnabled="True" WidthRequest="30" HeightRequest="30" CornerRadius="50">
-            </Button>
+            </Button>-->
 
         </VerticalStackLayout>
     </ScrollView>
