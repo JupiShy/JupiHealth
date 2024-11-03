@@ -49,6 +49,13 @@ namespace HealthApp.BindingHelpers
         public async Task DeleteMed(Medicines medicine)
         {
             _db.medicines.Remove(medicine);
+            var medProgress = await _db.medicines_progress.FirstOrDefaultAsync(mp => mp.med_id == medicine.id);
+
+            if (medProgress != null)
+            {
+                _db.medicines_progress.Remove(medProgress);
+            }
+
             await _db.SaveChangesAsync();
             medicines.Remove(medicine);
         }

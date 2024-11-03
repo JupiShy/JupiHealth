@@ -77,6 +77,7 @@ namespace HealthApp
             }
 
             ((ListView)sender).SelectedItem = null;
+            OnAppearing();
         }
 
         

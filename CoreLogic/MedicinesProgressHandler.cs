@@ -40,6 +40,15 @@ namespace HealthApp.CoreLogic
             }     
         }
 
+        public async Task ClearMedicinesProgress()
+        {
+            using (var db = new DatabaseSource())
+            {
+                await db.Database.ExecuteSqlRawAsync("DELETE FROM medicines_progress");
+                await db.SaveChangesAsync();
+            }
+        }
+
         public async Task<bool> IsMedInMedicinesProgress(int medId)
         {
             using (var db = new DatabaseSource())

@@ -33,8 +33,8 @@ namespace HealthApp
             {
                 while (true)
                 {
-                    medName = await DisplayPromptAsync("Назва", "Введіть назву (до 30 символів):");
-                    if (!string.IsNullOrEmpty(medName) || medName.Length <= 30)
+                    medName = await DisplayPromptAsync("Назва", "Введіть назву (до 15 символів):");
+                    if (!string.IsNullOrEmpty(medName) || medName.Length <= 15)
                         break;
                     bool ans = await DisplayAlert("Помилка", "Неправильно введено назву, спробуйте ще раз.", "OK", "Назад");
                     if (ans == false) break;

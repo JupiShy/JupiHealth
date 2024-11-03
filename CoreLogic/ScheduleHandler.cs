@@ -8,9 +8,6 @@ namespace HealthApp.CoreLogic
     {
         public async Task ScheduleFilling()
         {
-            //var medHandler = new MedicinesProgressHandler();
-            //await medHandler.MedProgressUpdate();
-
             using (var db = new DatabaseSource())
             {
                 var medpr = db.medicines_progress.FirstOrDefault();
@@ -26,7 +23,7 @@ namespace HealthApp.CoreLogic
                 }
                 else
                 {
-                    Console.WriteLine("UPDATE!"); 
+                    Console.WriteLine("UPDATE!");
                     await UpdateTodaysSchedule();
                 }
             }
@@ -41,33 +38,38 @@ namespace HealthApp.CoreLogic
 
                 var medpr = db.medicines_progress.FirstOrDefault();
 
-                    db.todays_schedule.RemoveRange(db.todays_schedule);
-                    db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'todays_schedule'");
+                db.Database.ExecuteSqlRaw("DELETE FROM todays_schedule");
+                db.Database.ExecuteSqlRaw("DELETE FROM sqlite_sequence WHERE name = 'todays_schedule'");
                     await db.SaveChangesAsync();
                     var med_progress = await db.medicines_progress.ToListAsync();
 
                     foreach (var med in med_progress)
                     {
-                        var medicament = db.medicines.Find(med.id);
-                        if (medicament.days_to_take > 0)
+                    Console.WriteLine("Medicine processing...");
+                    var medicament = db.medicines.Find(med.id);
+                    Console.WriteLine($"Processing medicine ID: {med.id} with days_to_take: {med.day_num}");
+
+                    if (med?.day_num >= 1)
                         {
-                            var medicines = await db.medicines.FindAsync(med.id);
+                        Console.WriteLine("Days > 0");
+                            var medicines = await db.medicines.FindAsync(med.med_id);
                             var timeList = medHandler.TimeToList(medicines!.reception_hours);
                             var times = medHandler.ConvertTimeString(medicines.reception_hours);
                             for (int i = 0; i < times; i++)
                             {
                                 var med_to_consume = new TodaysSchedule
                                 {
-                                    med_id = med.id,
+                                    med_id = med.med_id,
                                     reception_hour = timeList[i]
                                 };
                                 db.todays_schedule.Add(med_to_consume);
                             }
+
+                        med.last_schedule_date = DateTime.Today.ToString("yyyy-MM-dd");
                         }
                         else
                         {
-                            var medicines = await db.medicines.FindAsync(med.id);
-                            medicines.drug_name += " (Випито)";
+                        Console.WriteLine("Days < 0");
                         }
                     }
                     await db.SaveChangesAsync();
@@ -97,7 +99,7 @@ namespace HealthApp.CoreLogic
                                 bool alreadyExists = await db.todays_schedule.AnyAsync(ts =>
                                     ts.med_id == medicine.id && ts.reception_hour == timeList[i]);
 
-                                if (!alreadyExists)
+                                if (!alreadyExists && medProgress.day_num > 0)
                                 {
                                     Console.WriteLine("ADDED!");
 
@@ -114,13 +116,11 @@ namespace HealthApp.CoreLogic
                                 }
                             }
                         }
-                        catch
-                        {
-                            Console.WriteLine(":(");
-                        }
-                
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Помилка при оновленні графіку для медикаменту {medicine?.drug_name ?? "невідомий"}: {ex.Message}");
+                    }
                 }
-
                 await db.SaveChangesAsync();
             }
         }
