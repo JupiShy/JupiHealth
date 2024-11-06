@@ -70,7 +70,7 @@ namespace HealthApp
                     break;
                 case "Змінити ім'я":
                     {
-                        string inputName = await DisplayPromptAsync("Налаштування профілю", "Введіть Ваше ім'я (до 15 символів):");
+                        string inputName = await DisplayPromptAsync("Налаштування профілю", "Введіть Ваше ім'я (до 15 символів):", maxLength:15);
                         if (inputName != null && inputName.Length <= 15)
                         {
                             await databaseHandler.ChangeUserName(inputName);
@@ -83,7 +83,7 @@ namespace HealthApp
                     break;
                 case "Змінити вік":
                     {
-                        string inputAgeString = await DisplayPromptAsync("Налаштування профілю", "Введіть Ваш вік:");
+                        string inputAgeString = await DisplayPromptAsync("Налаштування профілю", "Введіть Ваш вік:", maxLength:2, keyboard:Keyboard.Numeric);
                         int.TryParse(inputAgeString, out int inputAge);
                         if(inputAge < 18)
                         {

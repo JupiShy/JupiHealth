@@ -27,31 +27,39 @@ namespace HealthApp
 
         public async void ChangeParametersButtonClicked(object sender, EventArgs e)
         {
-            string weightStr = await DisplayPromptAsync("Оновити параметри", "Введіть Вашу вагу (кг):", "OK", keyboard: Keyboard.Numeric);
-            await Task.Delay(800);
-            string heightStr = await DisplayPromptAsync("Оновити параметри", "Введіть Ваш зріст (см):", "OK", keyboard: Keyboard.Numeric);
-
-            if (double.TryParse(weightStr, out double weight) && double.TryParse(heightStr, out double height))
+            string weightStr = await DisplayPromptAsync("Оновити параметри", "Введіть Вашу вагу (кг):", "OK", keyboard: Keyboard.Numeric, maxLength:5);
+            double.TryParse(weightStr, out double weight);
+            if(weight > 0)
             {
-                using (var db = new DatabaseSource())
+                await Task.Delay(800);
+                string heightStr = await DisplayPromptAsync("Оновити параметри", "Введіть Ваш зріст (см):", "OK", keyboard: Keyboard.Numeric, maxLength: 5);
+                double.TryParse(heightStr, out double height);
+
+                if (height > 0)
                 {
-                    var dbHandler = new DatabaseHandler();
+                    using (var db = new DatabaseSource())
+                    {
+                        var dbHandler = new DatabaseHandler();
 
-                    await dbHandler.ChangeParameters(weight, height);
+                        await dbHandler.ChangeParameters(weight, height);
 
-                    await db.SaveChangesAsync();
+                        //await db.SaveChangesAsync();
+                    }
+
+                    OnAppearing();
                 }
-
-                OnAppearing();
             }
+            
+
+            
         }
 
         public async void ChangeTargetButtonClicked(object sender, EventArgs e)
         {
             string targetStr = await DisplayPromptAsync("Змінити цільовий ІМТ", "Введіть Ваш цільовий ІМТ. " + Environment.NewLine +
-                "Майте на увазі, що здоровий показник від 18,5 до 24,9!", "OK", keyboard: Keyboard.Numeric);
+                "Майте на увазі, що здоровий показник від 18,5 до 24,9!", "OK", keyboard: Keyboard.Numeric, maxLength: 5);
 
-            if (double.TryParse(targetStr, out double target))
+            if (double.TryParse(targetStr, out double target) && target > 15 && target < 200)
             {
                 using (var db = new DatabaseSource())
                 {
@@ -69,7 +77,7 @@ namespace HealthApp
 
         public async void AddWaterButtonClicked(object sender, EventArgs e)
         {
-            string input = await DisplayPromptAsync("Додати воду", "Введіть кількість (мл):", "OK", keyboard: Keyboard.Numeric);
+            string input = await DisplayPromptAsync("Додати воду", "Введіть кількість (мл):", "OK", keyboard: Keyboard.Numeric, maxLength: 4);
 
             if (int.TryParse(input, out int amount))
             {

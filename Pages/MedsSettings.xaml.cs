@@ -33,8 +33,8 @@ namespace HealthApp
             {
                 while (true)
                 {
-                    medName = await DisplayPromptAsync("Назва", "Введіть назву (до 15 символів):");
-                    if (!string.IsNullOrEmpty(medName) || medName.Length <= 15)
+                    medName = await DisplayPromptAsync("Назва", "Введіть назву (до 15 символів):", maxLength:15);
+                    if (!string.IsNullOrEmpty(medName))
                         break;
                     bool ans = await DisplayAlert("Помилка", "Неправильно введено назву, спробуйте ще раз.", "OK", "Назад");
                     if (ans == false) break;
@@ -42,7 +42,7 @@ namespace HealthApp
 
                 while (true)
                 {
-                    medDays = await DisplayPromptAsync("Днів", "Введіть, скільки днів Ви маєте приймати цей препарат:");
+                    medDays = await DisplayPromptAsync("Днів", "Введіть, скільки днів Ви маєте приймати цей препарат:", maxLength:3, keyboard:Keyboard.Numeric);
                     if (int.TryParse(medDays, out days) && days > 0)
                         break;
                     bool ans = await DisplayAlert("Помилка", "Неправильно введено кількість днів, спробуйте ще раз.", "OK", "Назад");
@@ -51,7 +51,7 @@ namespace HealthApp
 
                 while (true)
                 {
-                    medTime = await DisplayPromptAsync("Години", "Вкажіть години прийому:");
+                    medTime = await DisplayPromptAsync("Години", "Вкажіть години прийому (через кому):", maxLength: 40);
                     if (!string.IsNullOrEmpty(medTime))
                     {
                         using (var db = new DatabaseSource())
@@ -89,9 +89,9 @@ namespace HealthApp
             switch (action)
             {
                 case "Редагувати":
-                    string newName = await DisplayPromptAsync("Редагувати", "Назва:", initialValue: selectedMedicine.drug_name);
-                    string newDaysStr = await DisplayPromptAsync("Редагувати", "Дні прийому:", initialValue: selectedMedicine.days_to_take.ToString());
-                    string newHours = await DisplayPromptAsync("Редагувати", "Час прийому:", initialValue: selectedMedicine.reception_hours);
+                    string newName = await DisplayPromptAsync("Редагувати", "Назва:", initialValue: selectedMedicine.drug_name, maxLength:15);
+                    string newDaysStr = await DisplayPromptAsync("Редагувати", "Дні прийому:", initialValue: selectedMedicine.days_to_take.ToString(), maxLength:3, keyboard:Keyboard.Numeric);
+                    string newHours = await DisplayPromptAsync("Редагувати", "Час прийому:", initialValue: selectedMedicine.reception_hours, maxLength:40);
 
                     if (int.TryParse(newDaysStr, out int newDays) && !string.IsNullOrWhiteSpace(newName) && !string.IsNullOrWhiteSpace(newHours))
                     {

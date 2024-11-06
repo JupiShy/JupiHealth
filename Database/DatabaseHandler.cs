@@ -19,9 +19,13 @@ namespace HealthApp.Database
 
             metrics.weight = weight;
             metrics.height = height;
-            metrics.bmi = CalculateBMI(weight, height);
+            double bmi = CalculateBMI(weight, height);
 
-            await db.SaveChangesAsync();
+            if (bmi < 200)
+            {
+                metrics.bmi = bmi;
+                await db.SaveChangesAsync();
+            }   
         }
 
         public async Task AddWater(int amount)
